@@ -1,0 +1,28 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Your Repository Name
+Label: Your Repository Label
+Suite: stable
+Codename: stable
+Version: 1.0
+Architectures: amd64
+Components: main
+Description: Your custom Debian repository
+Date: Wed, 19 Mar 2025 13:57:01 +0000
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEuA+i+hQpZnAyzXUi679hUAj9QpQFAmfazTYACgkQ679hUAj9
+QpSQwA//braSzMGAgS4yu60Ol/hmP4+giQJppOY31oELvwsidBLgCxfxiO5+1ESk
+1UXHvh0HyVXYWfcn3UWrMUchDBgoGI5DsRmbGbNUqwFnSx7CHxG6aVRbI43YV30I
+Rjku3WHyi2DUQKyrrpFJ2sjhTbzZCL8KqE4UieFhL+SwkW5JvMpnXkSgdTLPz8Wo
+VcqrGuSvI4WPeM7iLqJjfuwcJqAE6WwBQD/x/0L09oibXgv3pYUCj7GoKz13vLl+
+BedltUokMI5H63KwQeQ+2b/pZoXxAr2uHNfof2ZJekkgMh1IbTp72BK7j0zzezMb
+bjiPTcvg16e0JUSsU84Nm7AsBMMn9BfAAJPXqJ4U744Zj9fp/zUO9+wZuLCmBgLH
+WjqWjQ6nheZiB8WtitlJLXr51xREzpMMOmiU2B+P9WgoV/Zp5pbOQXHoNvIig04Y
+hv/GsnOfZuP+0I4GQKyI2GzNb3hHcql/NTNHNkip4WfprwnPzWdtW+BiKvoVBBBx
+XHqxMVAqWd6RJVhi9luSjUT1GQ53IDTC3tW/KBvP6Jyp5Ikpx7s+G9JHtF7m36yg
+tCnN4o+CSOwcZ/s7oe9ErqxI4kjIGjSBcdLze2C1fTX2tucCjtG3o91y/hS7VemE
+uYFgi2EZk5SMOIiPezt1UIJWwkF6fO7xMsiK18jLFNkKfT5mf3g=
+=0ZQD
+-----END PGP SIGNATURE-----
