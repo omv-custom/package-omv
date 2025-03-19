@@ -1,3 +1,3 @@
-Add the following line to */etc/apt/sources.list.d/openmediavault.list* to use this package repository.
+Add the following line to */etc/apt/sources.list.d/openmediavault.list* to use this package repository. A Backup
 
-``deb https://openmediavault.github.io/packages/ <DISTRIBUTIONNAME> main``
+``deb https://gekomod.github.io/package-omv/ <DISTRIBUTIONNAME> main``
