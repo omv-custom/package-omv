@@ -1,45 +1,33 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-Origin: Your Repository
-Label: Your Repository
+Origin: Custom Debian Repository
+Label: Custom Repo
 Suite: stable
 Codename: stable
-Version: 1.0
 Architectures: amd64
 Components: main
-Description: Your custom Debian repository
-Date: Wed, 19 Mar 2025 14:11:47 +0000
-Date: Wed, 19 Mar 2025 14:11:47 +0000
+Description: Custom Debian Repository
+Date: Wed, 19 Mar 2025 14:28:55 +0000
 MD5Sum:
- c0b22ff269bb58d57a354895f84af001              248 Release
- 5ca5a2947bad143b309ffd2a6dfaefa3             3539 main/binary-amd64/Packages
- 8500e9d621d023ed54ae64202338e528            23543 main/binary-amd64/Packages.gz
+8500e9d621d023ed54ae64202338e528 main/binary-amd64/Packages.gz
 SHA1:
- 6b0c0ff35822431bc4aeee6f882443f7eaaf2fdd              248 Release
- 6d18a67670d91ed73ce878fa08042a32f30c3f39             3539 main/binary-amd64/Packages
- f0f23922555505892fe942a6e6046afe974bb495            23543 main/binary-amd64/Packages.gz
+f0f23922555505892fe942a6e6046afe974bb495 main/binary-amd64/Packages.gz
 SHA256:
- 87d13df7aa51d75f0b96b3a94f5746f65d8fffb8699f7778e98b043d6d0b5e1d              248 Release
- 0c08a54bb3c4ef5409173183406501293b11cfa90234f95b74dedb31e594db90             3539 main/binary-amd64/Packages
- 38811fac65a4cc95f83bf4f7df08b9889591ed71121b06008652391da9459a3d            23543 main/binary-amd64/Packages.gz
-SHA512:
- 8f1f74c159ea55b3739b9fe757f6b4fa7423225c7b3ac83aa62190b5c1fbce8113dd9f0f37f4e8120467902c229e1a7b915562c54285cbdcfbb5f7278380dd62              248 Release
- 06cbc5e95a628e45240f2be395afcabcf65aa4e1a307edb5eacd60dee74254cc9a65762c052c724f3e0d259f0c6bc7700f61eb9b654f43b1e3bbd479d398f09f             3539 main/binary-amd64/Packages
- 0d6d2c842f12aac085232b7c3f848669c3758144159cd08dce89d0f79fee17c9ee7ada8a532c55307771100c8b56e534cbfcb37a093ebc0cffca9acd3519c7cd            23543 main/binary-amd64/Packages.gz
+38811fac65a4cc95f83bf4f7df08b9889591ed71121b06008652391da9459a3d main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEuA+i+hQpZnAyzXUi679hUAj9QpQFAmfa0LwACgkQ679hUAj9
-QpRnRRAA0FRw27opTu5RDfNeFRUIl6gcsKaQgsHyhktQxEoPKcRCxYvHeOCEl2EF
-qB2D1drrYnqONa4KvxtbuA68GuG9zg4Mrk0w05a1ivL6idrtgrbj9L0eE5MFBf81
-L3jkEiTelL5iILABjUBF7KyqK94hs3krwi20/w+CUx5GrmCcYkJVVLavZ7OLsyFB
-uTnzMB0yANlaKG9TtgbB/QVcl5y/g4tBTPFlz7lCKU8LpZFZRzkl94HddgtWNHgh
-ch8tdYvtOmEHTw2EaNL+7zqVGkPfvDbOv9ffdcySc695Dg2/+gc3QGsP/POspf43
-n7+FQq0sGNx/NQoY45/+85wfqMU2h80crrrp//oc04YqydP4C3IBx7xuHFSQTGEb
-04lPXF91NKf54bySaR0YWrfW1xXudS8O+1F26G61NbSDDX8fk9w1CI2z40ahF2sl
-/ZBm7rwK0o5GfXZb2Fk8TOq3Q4Jff1Uy/8Oyme80gmgbKUNpK0rg2QLnjWHrib9k
-JAq3k4snGXh5ZdXA57GljLHnH2sWmBVqcj/72mXASdhLV97oX2KVmcuHEpYCieBY
-XXqAQB2g7Hrl04+P3GJFN9quPPaK/AMlnwTGAx8BQjxKN94/ALIXSm5bYFUvOiEZ
-sRzKnUersMRI4mFgt6BISBqyck/XzZQ9476EVzPahUcVMAZtVC4=
-=i2oT
+iQIzBAEBCgAdFiEEuA+i+hQpZnAyzXUi679hUAj9QpQFAmfa1LIACgkQ679hUAj9
+QpS3Rw/9Ek3CdLa85kng5n8WbM/WwbdQGPIKlILEhdzdx0sH2ithqtUUX2t3n0mg
+qOrVY25wKsd+/aMGTwfBnh1VUHv/EkpmsuQvHOp9P3aQfnJUSdOSc+OdD5n7ONXm
+38qGev1S1h3Z9QVgoNNUKU6+GOgrtFXYKTrp7G3LhOxPMIGDGcIk9tw78w/OHd+K
+52dKu8T/DyYr6I9Vn8obrMltXE33o4Zq+5Zi/M6kC0nYnyj+9Z7svI2+0XCaBIAk
+IPWrOSRamHy3qV8bCX67RYgePNS6YLDwD6K4o/ohU0M7wtx8igBPfvdpFVbF+8gD
+oLNedxlFSWzrRWNIb8ZbiHx6CcPAT8UCPK83AfKeRI5WAv6MefQkQnmCbxF5cEed
+g0cCuKlF20kTUjamxTQ75MFwMplDpf/9paSPFgDoD4NCkTL5xKJIiEiOFQxG0rKs
+yD+YGfcAwK7EDy5zfz3IT6Dt3nmbg5TmkTX8siyKffsqViE/LHLwaftnDxhAppMO
+5+ElY5zHKZl7YBtgUjVa2JUZV5BiOYOO0qHMRSQ+Q5tdInxoSk8VFo0AClTmgySm
+I0SsQfAXjVIrV0qTVSgLVPRbQtIBOFryD6LiDYfVeb2u7QHpWYyOPp4QPNlyJy5z
+ApYwWXQqQUmiXfCJV9zOZgL10etq6plpuEr7ACUsvxEnCxT961k=
+=n7Qk
 -----END PGP SIGNATURE-----

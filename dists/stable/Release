@@ -1,26 +1,14 @@
-Origin: Your Repository
-Label: Your Repository
+Origin: Custom Debian Repository
+Label: Custom Repo
 Suite: stable
 Codename: stable
-Version: 1.0
 Architectures: amd64
 Components: main
-Description: Your custom Debian repository
-Date: Wed, 19 Mar 2025 14:11:47 +0000
-Date: Wed, 19 Mar 2025 14:11:47 +0000
+Description: Custom Debian Repository
+Date: Wed, 19 Mar 2025 14:28:55 +0000
 MD5Sum:
- c0b22ff269bb58d57a354895f84af001              248 Release
- 5ca5a2947bad143b309ffd2a6dfaefa3             3539 main/binary-amd64/Packages
- 8500e9d621d023ed54ae64202338e528            23543 main/binary-amd64/Packages.gz
+8500e9d621d023ed54ae64202338e528 main/binary-amd64/Packages.gz
 SHA1:
- 6b0c0ff35822431bc4aeee6f882443f7eaaf2fdd              248 Release
- 6d18a67670d91ed73ce878fa08042a32f30c3f39             3539 main/binary-amd64/Packages
- f0f23922555505892fe942a6e6046afe974bb495            23543 main/binary-amd64/Packages.gz
+f0f23922555505892fe942a6e6046afe974bb495 main/binary-amd64/Packages.gz
 SHA256:
- 87d13df7aa51d75f0b96b3a94f5746f65d8fffb8699f7778e98b043d6d0b5e1d              248 Release
- 0c08a54bb3c4ef5409173183406501293b11cfa90234f95b74dedb31e594db90             3539 main/binary-amd64/Packages
- 38811fac65a4cc95f83bf4f7df08b9889591ed71121b06008652391da9459a3d            23543 main/binary-amd64/Packages.gz
-SHA512:
- 8f1f74c159ea55b3739b9fe757f6b4fa7423225c7b3ac83aa62190b5c1fbce8113dd9f0f37f4e8120467902c229e1a7b915562c54285cbdcfbb5f7278380dd62              248 Release
- 06cbc5e95a628e45240f2be395afcabcf65aa4e1a307edb5eacd60dee74254cc9a65762c052c724f3e0d259f0c6bc7700f61eb9b654f43b1e3bbd479d398f09f             3539 main/binary-amd64/Packages
- 0d6d2c842f12aac085232b7c3f848669c3758144159cd08dce89d0f79fee17c9ee7ada8a532c55307771100c8b56e534cbfcb37a093ebc0cffca9acd3519c7cd            23543 main/binary-amd64/Packages.gz
+38811fac65a4cc95f83bf4f7df08b9889591ed71121b06008652391da9459a3d main/binary-amd64/Packages.gz

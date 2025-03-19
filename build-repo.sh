@@ -1,57 +1,78 @@
 #!/bin/bash
 
+# Skrypt do budowy własnego repozytorium Debian z plikami .deb z katalogu /pool/main
+# oraz utworzenia klucza GPG do podpisywania repozytorium.
+
 # Konfiguracja
 REPO_DIR="/home/zaba/Dokumenty/package-omv"  # Ścieżka do katalogu repozytorium
-POOL_DIR="$REPO_DIR/pool/main" # Ścieżka do katalogu z plikami .deb
-DIST_DIR="$REPO_DIR/dists/stable/main/binary-amd64" # Ścieżka do dystrybucji
-GPG_KEY_NAME="contact@openmediavault.pl" # Nazwa klucza GPG
+POOL_DIR="$REPO_DIR/pool/main"  # Ścieżka do katalogu z plikami .deb
+DIST="stable"  # Nazwa dystrybucji (np. stable, testing)
+ARCH="amd64"  # Architektura (np. amd64, arm64)
+GPG_NAME="OMVCUSTOM"  # Nazwa do klucza GPG
+GPG_EMAIL="contact@openmediavault.pl"  # Email do klucza GPG
 
 # Utwórz katalogi repozytorium
-mkdir -p "$DIST_DIR"
+mkdir -p "$REPO_DIR/dists/$DIST/main/binary-$ARCH"
+mkdir -p "$REPO_DIR/pool/main"
 
-# Przejdź do katalogu z plikami .deb
-cd "$POOL_DIR"
+# Przejdź do katalogu repozytorium
+cd "$REPO_DIR"
 
-# Utwórz plik Packages.gz
-dpkg-scanpackages . /dev/null | gzip -9c > "$DIST_DIR/Packages.gz"
-
-# Utwórz plik Release
-cd "$REPO_DIR/dists/stable"
-cat <<EOF > Release
-Origin: Your Repository
-Label: Your Repository
-Suite: stable
-Codename: stable
-Version: 1.0
-Architectures: amd64
-Components: main
-Description: Your custom Debian repository
-Date: $(date -Ru)
-EOF
-
-# Dodaj sumy kontrolne do pliku Release
-apt-ftparchive release . >> Release
-
-# Wygeneruj klucz GPG (jeśli nie istnieje)
-if ! gpg --list-keys "$GPG_KEY_NAME" > /dev/null 2>&1; then
-  echo "Generowanie nowego klucza GPG..."
-  gpg --batch --gen-key <<EOF
+# 1. Utwórz klucz GPG
+echo "Tworzenie klucza GPG..."
+gpg --batch --gen-key <<EOF
 Key-Type: RSA
 Key-Length: 4096
 Subkey-Type: RSA
 Subkey-Length: 4096
-Name-Real: Your Name
-Name-Email: your.email@example.com
+Name-Real: $GPG_NAME
+Name-Email: $GPG_EMAIL
 Expire-Date: 0
+%no-protection
 %commit
 EOF
-fi
 
-# Podpisz plik Release
-gpg --armor --detach-sign -o Release.gpg Release
-gpg --clearsign -o InRelease Release
+# Eksportuj klucz publiczny
+echo "Eksportowanie klucza publicznego..."
+gpg --armor --export "$GPG_EMAIL" > "$REPO_DIR/KEY.gpg"
 
+# 2. Zbuduj repozytorium
+echo "Budowanie repozytorium..."
+
+# Utwórz plik Packages.gz
+cd "$POOL_DIR"
+dpkg-scanpackages . /dev/null | gzip -9c > "$REPO_DIR/dists/$DIST/main/binary-$ARCH/Packages.gz"
+
+# Utwórz plik Release
+cd "$REPO_DIR/dists/$DIST"
+cat <<EOF > Release
+Origin: Custom Debian Repository
+Label: Custom Repo
+Suite: $DIST
+Codename: $DIST
+Architectures: $ARCH
+Components: main
+Description: Custom Debian Repository
+Date: $(date -Ru)
+EOF
+
+# Dodaj sumy kontrolne do pliku Release
+echo "MD5Sum:" >> Release
+md5sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
+echo "SHA1:" >> Release
+sha1sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
+echo "SHA256:" >> Release
+sha256sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
+
+# 3. Podpisz plik Release za pomocą GPG
+echo "Podpisywanie pliku Release..."
+gpg --armor --detach-sign --output Release.gpg Release
+gpg --clearsign --output InRelease Release
+
+# 4. Zakończenie
 echo "Repozytorium zostało utworzone w katalogu: $REPO_DIR"
-echo "Klucz GPG został wygenerowany i użyty do podpisania repozytorium."
-
-gpg --export --armor "$GPG_KEY_NAME" > omv.asc
+echo "Klucz publiczny GPG znajduje się w pliku: $REPO_DIR/KEY.gpg"
+echo "Możesz dodać repozytorium do systemu, używając następujących poleceń:"
+echo "sudo apt-key add $REPO_DIR/KEY.gpg"
+echo "sudo echo 'deb [arch=$ARCH] file://$REPO_DIR $DIST main' > /etc/apt/sources.list.d/custom-repo.list"
+echo "sudo apt update"
