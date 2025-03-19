@@ -1,78 +1,66 @@
 #!/bin/bash
 
-# Skrypt do budowy własnego repozytorium Debian z plikami .deb z katalogu /pool/main
-# oraz utworzenia klucza GPG do podpisywania repozytorium.
-
 # Konfiguracja
 REPO_DIR="/home/zaba/Dokumenty/package-omv"  # Ścieżka do katalogu repozytorium
 POOL_DIR="$REPO_DIR/pool/main"  # Ścieżka do katalogu z plikami .deb
-DIST="stable"  # Nazwa dystrybucji (np. stable, testing)
-ARCH="amd64"  # Architektura (np. amd64, arm64)
-GPG_NAME="OMVCUSTOM"  # Nazwa do klucza GPG
-GPG_EMAIL="contact@openmediavault.pl"  # Email do klucza GPG
+DIST_DIR="$REPO_DIR/dists/stable/main/binary-amd64"  # Ścieżka do dystrybucji
+GPG_KEY_NAME="debian-repo-key"  # Nazwa klucza GPG
+GPG_KEY_EMAIL="contact@openmediavault.pl"  # Email do klucza GPG
 
-# Utwórz katalogi repozytorium
-mkdir -p "$REPO_DIR/dists/$DIST/main/binary-$ARCH"
-mkdir -p "$REPO_DIR/pool/main"
+# 1. Utwórz strukturę katalogów repozytorium
+mkdir -p "$POOL_DIR"
+mkdir -p "$DIST_DIR"
 
-# Przejdź do katalogu repozytorium
-cd "$REPO_DIR"
-
-# 1. Utwórz klucz GPG
-echo "Tworzenie klucza GPG..."
-gpg --batch --gen-key <<EOF
+# 2. Utwórz klucz GPG (jeśli nie istnieje)
+if ! gpg --list-keys "$GPG_KEY_EMAIL" > /dev/null 2>&1; then
+  echo "Tworzenie nowego klucza GPG..."
+  gpg --batch --gen-key <<EOF
 Key-Type: RSA
 Key-Length: 4096
 Subkey-Type: RSA
 Subkey-Length: 4096
-Name-Real: $GPG_NAME
-Name-Email: $GPG_EMAIL
+Name-Real: $GPG_KEY_NAME
+Name-Email: $GPG_KEY_EMAIL
 Expire-Date: 0
 %no-protection
-%commit
 EOF
+fi
 
-# Eksportuj klucz publiczny
+# 3. Eksportuj klucz publiczny
 echo "Eksportowanie klucza publicznego..."
-gpg --armor --export "$GPG_EMAIL" > "$REPO_DIR/KEY.gpg"
+gpg --armor --export "$GPG_KEY_EMAIL" > "$REPO_DIR/public-omv.key"
 
-# 2. Zbuduj repozytorium
-echo "Budowanie repozytorium..."
+# 4. Przenieś pliki .deb do katalogu /pool/main (jeśli nie są już tam umieszczone)
+if [ ! -z "$(ls -A /path/to/your/debs/*.deb 2>/dev/null)" ]; then
+  echo "Przenoszenie plików .deb do $POOL_DIR..."
+  mv /path/to/your/debs/*.deb "$POOL_DIR"
+fi
 
-# Utwórz plik Packages.gz
-cd "$POOL_DIR"
-dpkg-scanpackages . /dev/null | gzip -9c > "$REPO_DIR/dists/$DIST/main/binary-$ARCH/Packages.gz"
+# 5. Utwórz plik Packages.gz
+echo "Tworzenie pliku Packages.gz..."
+cd "$REPO_DIR"
+dpkg-scanpackages -m pool/main > "$DIST_DIR/Packages"
+gzip -k -f "$DIST_DIR/Packages"
 
-# Utwórz plik Release
-cd "$REPO_DIR/dists/$DIST"
+# 6. Utwórz plik Release
+echo "Tworzenie pliku Release..."
+cd "$REPO_DIR/dists/stable"
 cat <<EOF > Release
-Origin: Custom Debian Repository
-Label: Custom Repo
-Suite: $DIST
-Codename: $DIST
-Architectures: $ARCH
+Origin: Your Debian Repository
+Label: Your Debian Repository
+Codename: stable
+Architectures: amd64
 Components: main
 Description: Custom Debian Repository
 Date: $(date -Ru)
 EOF
+apt-ftparchive release . >> Release
 
-# Dodaj sumy kontrolne do pliku Release
-echo "MD5Sum:" >> Release
-md5sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
-echo "SHA1:" >> Release
-sha1sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
-echo "SHA256:" >> Release
-sha256sum main/binary-$ARCH/Packages.gz | awk '{print $1, $2}' >> Release
-
-# 3. Podpisz plik Release za pomocą GPG
+# 7. Podpisz plik Release kluczem GPG
 echo "Podpisywanie pliku Release..."
-gpg --armor --detach-sign --output Release.gpg Release
-gpg --clearsign --output InRelease Release
+gpg --default-key "$GPG_KEY_EMAIL" --digest-algo SHA512 -abs -o Release.gpg Release
+gpg --default-key "$GPG_KEY_EMAIL" --digest-algo SHA512 -abs --clearsign -o InRelease Release
 
-# 4. Zakończenie
-echo "Repozytorium zostało utworzone w katalogu: $REPO_DIR"
-echo "Klucz publiczny GPG znajduje się w pliku: $REPO_DIR/KEY.gpg"
-echo "Możesz dodać repozytorium do systemu, używając następujących poleceń:"
-echo "sudo apt-key add $REPO_DIR/KEY.gpg"
-echo "sudo echo 'deb [arch=$ARCH] file://$REPO_DIR $DIST main' > /etc/apt/sources.list.d/custom-repo.list"
-echo "sudo apt update"
+# 8. Zakończ
+echo "Repozytorium zostało pomyślnie utworzone w $REPO_DIR."
+echo "Klucz publiczny znajduje się w $REPO_DIR/public-omv.key."
