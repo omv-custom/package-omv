@@ -1,0 +1,1937 @@
+Package: collectd
+Version: 5.12.0-7.1
+Architecture: armel
+Maintainer: Collectd Packaging Team <team+collectd@tracker.debian.org>
+Installed-Size: 205
+Depends: collectd-core (>= 5.12.0-7.1), collectd-core (<< 5.12.0-7.1.1~), libc6 (>= 2.4), librrd8 (>= 1.3.0)
+Recommends: libatasmart4 (>= 0.13), libbson-1.0-0 (>= 1.17.6), libc6 (>= 2.29), libcurl3-gnutls (>= 7.18.2-5), libdbi1 (>= 0.9.0), libesmtp6, libgcc-s1 (>= 3.5), libgcrypt20 (>= 1.8.0), libglib2.0-0 (>= 2.12.0), libgps28 (>= 3.3), libgrpc++1 (>= 1.30.2), libgrpc10 (>= 1.30.2), libhiredis0.14 (>= 0.14.0), libi2c0 (>= 4.0), libip4tc2 (>= 1.8.3), libip6tc2 (>= 1.8.3), libldap-2.4-2 (>= 2.4.7), liblua5.3-0, libmariadb3 (>= 3.0.0), libmemcached11, libmicrohttpd12 (>= 0.9.50), libmnl0 (>= 1.0.3-4~), libmodbus5 (>= 3.0.2), libmongoc-1.0-0 (>= 1.17.6), libmosquitto1 (>= 1.2), libnotify4 (>= 0.7.0), libopenipmi0 (>= 2.0.29), liboping0 (>= 0.3.3), libowcapi-3.2-4 (>= 3.2p4+dfsg1), libpcap0.8 (>= 1.0.0), libperl5.32 (>= 5.32.0~rc1), libpq5, libprotobuf-c1 (>= 1.0.1), libprotobuf23 (>= 3.12.4), libpython3.9 (>= 3.9.1), libqpid-proton11, librabbitmq4 (>= 0.8.0), librdkafka1 (>= 0.9.1), libriemann-client0 (>= 1.10.0), librrd8 (>= 1.4~rc2), libsensors5 (>= 1:3.5.0), libsnmp40 (>= 5.9+dfsg), libssl1.1 (>= 1.1.0), libstdc++6 (>= 5.2), libudev1 (>= 183), libupsclient4 (>= 2.7.2), libvarnishapi2 (>= 6.1.0), libvirt0 (>= 1.2.11~rc1), libxml2 (>= 2.7.4), libyajl2 (>= 2.0.4), default-jre-headless
+Filename: ./pool/main/c/collectd/collectd_5.12.0-7.1_armel.deb
+Size: 137992
+MD5sum: 469765ce804d446db2a7fcf81e5a04cb
+SHA1: ad5879e0a55a43fb0b4d0a911c28aa13684bbbe7
+SHA256: 0bfef9ea33e3c0cb5c5ea6e58704a63249593aa6c6336821570effb6fc0c9fff
+Section: utils
+Priority: optional
+Homepage: https://collectd.org/
+Description: statistics collection and monitoring daemon
+ collectd is a small daemon which collects system information periodically and
+ provides mechanisms to monitor and store the values in a variety of ways.
+ Since the daemon doesn't need to startup every time it wants to update the
+ values it's very fast and easy on the system. Also, the statistics are very
+ fine grained since the files are updated every 10 seconds by default.
+ .
+ The collected information can be used to find current performance bottlenecks
+ (performance analysis) and predict future system load (capacity planning).
+ .
+ This package provides a full installation of the daemon, including the
+ configuration. For the core system, see the "collectd-core" package, which
+ allows sites to, e.g., provide customizations (like a custom default
+ configuration) on top of it without having to modify the "collectd" package.
+
+Package: collectd-core
+Source: collectd
+Version: 5.12.0-7.1
+Architecture: armel
+Maintainer: Collectd Packaging Team <team+collectd@tracker.debian.org>
+Installed-Size: 4563
+Depends: libc6 (>= 2.17), libcap2 (>= 1:2.10), debconf (>= 0.5) | debconf-2.0, lsb-base
+Recommends: perl, rrdtool
+Suggests: collectd-dev, librrds-perl, liburi-perl, libhtml-parser-perl, libregexp-common-perl, libconfig-general-perl, httpd-cgi, apache2, apcupsd, bind9, ceph, chrony, default-mysql-server, gpsd, hddtemp, iptables, ipvsadm, lm-sensors, mbmon, memcached, nginx, notification-daemon, nut, openvpn, olsrd, pdns-server, postgresql, redis-server, slapd, time-daemon, varnish, zookeeper, libatasmart4 (>= 0.13), libbson-1.0-0 (>= 1.17.6), libc6 (>= 2.29), libcurl3-gnutls (>= 7.18.2-5), libdbi1 (>= 0.9.0), libesmtp6, libgcc-s1 (>= 3.5), libgcrypt20 (>= 1.8.0), libglib2.0-0 (>= 2.12.0), libgps28 (>= 3.3), libgrpc++1 (>= 1.30.2), libgrpc10 (>= 1.30.2), libhiredis0.14 (>= 0.14.0), libi2c0 (>= 4.0), libip4tc2 (>= 1.8.3), libip6tc2 (>= 1.8.3), libldap-2.4-2 (>= 2.4.7), liblua5.3-0, libmariadb3 (>= 3.0.0), libmemcached11, libmicrohttpd12 (>= 0.9.50), libmnl0 (>= 1.0.3-4~), libmodbus5 (>= 3.0.2), libmongoc-1.0-0 (>= 1.17.6), libmosquitto1 (>= 1.2), libnotify4 (>= 0.7.0), libopenipmi0 (>= 2.0.29), liboping0 (>= 0.3.3), libowcapi-3.2-4 (>= 3.2p4+dfsg1), libpcap0.8 (>= 1.0.0), libperl5.32 (>= 5.32.0~rc1), libpq5, libprotobuf-c1 (>= 1.0.1), libprotobuf23 (>= 3.12.4), libpython3.9 (>= 3.9.1), libqpid-proton11, librabbitmq4 (>= 0.8.0), librdkafka1 (>= 0.9.1), libriemann-client0 (>= 1.10.0), librrd8 (>= 1.4~rc2), libsensors5 (>= 1:3.5.0), libsnmp40 (>= 5.9+dfsg), libssl1.1 (>= 1.1.0), libstdc++6 (>= 5.2), libudev1 (>= 183), libupsclient4 (>= 2.7.2), libvarnishapi2 (>= 6.1.0), libvirt0 (>= 1.2.11~rc1), libxml2 (>= 2.7.4), libyajl2 (>= 2.0.4), default-jre-headless
+Replaces: collectd (<< 4.8.2-1~)
+Filename: ./pool/main/c/collectd/collectd-core_5.12.0-7.1_armel.deb
+Size: 1181148
+MD5sum: f9798f9d5d703701986d46635e703a89
+SHA1: 695e608239857781348016f39bedd551e08d5b46
+SHA256: 824782611bb6954de2470565bf85f908bc017dbac264f2af38830866d6107a2d
+Section: utils
+Priority: optional
+Homepage: https://collectd.org/
+Description: statistics collection and monitoring daemon (core system)
+ collectd is a small daemon which collects system information periodically and
+ provides mechanisms to monitor and store the values in a variety of ways.
+ Since the daemon doesn't need to startup every time it wants to update the
+ values it's very fast and easy on the system. Also, the statistics are very
+ fine grained since the files are updated every 10 seconds by default.
+ .
+ The collected information can be used to find current performance bottlenecks
+ (performance analysis) and predict future system load (capacity planning).
+ .
+ This package contains the main program file and the plugins listed below (some
+ of those plugins require additional libraries - for more details see
+ /usr/share/doc/collectd-core/README.Debian.plugins) but no configuration. For
+ a full installation (including configuration), see the "collectd" package.
+ This package allows sites to, e.g., provide customizations (like a custom
+ default configuration) on top of it without having to modify the "collectd"
+ package.
+ .
+   * AMQP output plugin: amqp
+   * AMQP 1.0 output plugin: amqp1
+   * Apache and lighttpd statistics provided by mod_status: apache
+   * APC UPS's charge, load, input/output/battery voltage, etc.: apcups
+   * Ascent server statistics: ascent
+   * Bosch and Freescale barometers: barometer
+   * battery status: battery
+   * bind9 name-server and zone statistics: bind
+   * Ceph distributed storage system statitics: ceph
+   * CGroups resource usage: cgroups
+   * Chrony daemon statistics: Local clock drift, offset to peers: chrony
+   * connection tracking table size: conntrack
+   * number of context switches done by the operating system: contextswitch
+   * CPU utilization: cpu
+   * CPU frequency: cpufreq
+   * CPU sleep: Time spent in suspend : cpusleep
+   * output to comma separated values (CSV) files: csv
+   * parse statistics from websites: curl
+   * parse JSON files: curl_json
+   * parse XML data: curl_xml
+   * query data from a relational database: dbi
+   * disk space usage: df
+   * disk and partition throughput: disk
+   * DNS traffic information: dns
+   * DPDK link status and keep alive events: dpdkevents
+   * DPDK interface statistics: dpdkstat
+   * Distributed Replicated Block Device status: drbd
+   * E-Mail statistics (count, traffic, spam scores and checks): email
+   * amount of available entropy: entropy
+   * execution of external programs: exec
+   * count the number of open file handles: fhcount
+   * count the number of files in directories: filecount
+   * Linux file-system based caching framework statistics: fscache
+   * Monitor gps related data through gpsd: gps
+   * Send or receive values over the network using the gRPC framework: grpc
+   * query data from Java processes using JMX: GenericJMX (Java based plugin)
+   * harddisk temperature: hddtemp
+   * Report the number of used and free hugepages: hugepages
+   * Intel Resource Director Technology statistics: intel_rdt
+   * network traffic: interface
+   * IPC statistics: ipc
+   * IPMI sensors information: ipmi
+   * iptables statistics: iptables
+   * IPVS connection statistics: ipvs
+   * IRQ counters: irq
+   * embedded Java Virtual Machine: java
+   * system load averages: load
+   * logging to files, STDOUT and STDERR: logfile
+   * logging in logstash's JSON event format: log_logstash
+   * embedded Lua interpreter: lua
+   * Machine Check Exceptions notifications: mcelog
+   * Atheros wireless LAN chipset statistics: madwifi
+   * motherboard monitor: mbmon
+   * query and parse data from a memcache daemon: memcachec
+   * statistics of the memcached distributed caching system: memcached
+   * memory usage: memory
+   * read values from Modbus/TCP enabled devices: modbus
+   * statistics from mon.itor.us: Monitorus (Perl based plugin)
+   * Publishes and subscribes to MQTT topics: mqtt
+   * multimeter statistics: multimeter
+   * MySQL statistics provided by MySQL's "show status" command: mysql
+   * detailed Linux network interface and routing statistics: netlink
+   * IO via the network: network
+   * NFS utilization: nfs
+   * Nginx (a HTTP and E-Mail server/proxy) statistics: nginx
+   * send desktop notifications to a notification daemon: notify_desktop
+   * send notification E-mails: notify_email
+   * send notifications to nagios: notify_nagios
+   * NTP daemon's local clock drift, offset to peers, etc.: ntpd
+   * UPS information: nut
+   * Optimized Link State Routing daemon statistics: olsrd
+   * OpenLDAP's cn=Monitor statistics: openldap
+   * OpenVPN traffic and compression statistics: openvpn
+   * OpenVZ statistics: OpenVZ (Perl based plugin)
+   * Open vSwitch link state events: ovs_events
+   * Open vSwitch bridge / interface statistics: ovs_stats
+   * embedded Perl interpreter: perl
+   * timing values from Pinba: pinba
+   * network latency statistics: ping
+   * PostgreSQL database statistics: postgresql
+   * PowerDNS name server statistics: powerdns
+   * number of processes: processes
+   * information about network protocols: protocols
+   * embedded Python interpreter: python
+   * Redis server statistics: redis
+   * write data via the RRD accelerator daemon: rrdcached
+   * output to RRD files: rrdtool
+   * lm_sensors information (e.g. CPU temperature, fan speeds): sensors
+   * serial port traffic: serial
+   * values from SNMP enabled network devices: snmp
+   * receive and handle queries from SNMP master agent: snmp_agent
+   * aggregate values received with the StatsD protocol: statsd
+   * SMART statistics: smart
+   * swap usage: swap
+   * Linux synproxy statistics: synproxy
+   * logging to syslog: syslog
+   * parse table-like structured files: table
+   * incremental parsing of logfiles: tail
+   * incremental parsing of CSV files: tail_csv
+   * number of TCP connections to specific ports: tcpconns
+   * TeamSpeak2 server statistics: teamspeak2
+   * power consumption measurements from "The Energy Detective" (TED): ted
+   * Linux ACPI thermal zone information: thermal
+   * check thresholds and for missing values: threshold
+   * statistics from Intel turbo-capable processors: turbostat
+   * external runtime interface: unixsock
+   * system uptime: uptime
+   * number of users logged into the system: users
+   * set the hostname to an unique identifier: uuid
+   * Varnish HTTP accelerator daemon statistics: varnish
+   * CPU, disk, network statistics of guest systems: virt
+   * detailed virtual memory statistics: vmem
+   * system resources used by Linux-VServers: vserver
+   * wireless network stats: wireless
+   * send collected values to a graphite server: write_graphite
+   * send collected values to a web-server: write_http
+   * send collected values to an Apache Kafka message broker: write_kafka
+   * send collected values to the logging subsystem: write_log
+   * send collected values to MongoDB, a NoSQL database: write_mongodb
+   * publish collected values as a Prometheus exporter: write_prometheus
+   * send collected values to a Redis server: write_redis
+   * send collected values to a Riemann server: write_riemann
+   * send collected values to a Sensu client: write_sensu
+   * send collected values to Google Stackdriver: write_stackdriver
+   * send collected values to an OpenTSDB server: write_tsdb
+   * XEN Hypervisor CPU stats: xencpu
+   * ZFS's Adaptive Replacement Cache statistics: zfs_arc
+   * data from Zookeeper's MNTR command: zookeeper
+
+Package: collectd-utils
+Source: collectd
+Version: 5.12.0-7.1
+Architecture: armhf
+Maintainer: Collectd Packaging Team <team+collectd@tracker.debian.org>
+Installed-Size: 216
+Depends: libc6 (>= 2.17), libcollectdclient1 (>= 5.2.0)
+Recommends: collectd
+Replaces: collectd (<< 4.6.1-1~)
+Filename: ./pool/main/c/collectd/collectd-utils_5.12.0-7.1_armhf.deb
+Size: 149232
+MD5sum: f7516fe5221d4149201d652fa6295d14
+SHA1: de73652508174845ca9e56c84b13839ecc66f2c9
+SHA256: 332780c5a850dfaa75f824f0e2288543ef1260310c42a7eee0e9b41343ded752
+Section: utils
+Priority: optional
+Homepage: https://collectd.org/
+Description: statistics collection and monitoring daemon (utilities)
+ collectd is a small daemon which collects system information periodically and
+ provides mechanisms to monitor and store the values in a variety of ways.
+ Since the daemon doesn't need to startup every time it wants to update the
+ values it's very fast and easy on the system. Also, the statistics are very
+ fine grained since the files are updated every 10 seconds by default.
+ .
+ This package contains the following utility:
+ .
+   * collectdctl: Control interface for collectd
+   * collectd-nagios: Nagios plugin for querying collectd
+
+Package: forked-daapd
+Version: 26.4+dfsg1-2~bpo11+1
+Architecture: armel
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Installed-Size: 875
+Depends: libantlr3c-3.4-0 | libantlr3c-antlrdbg-3.4-0, libasound2 (>= 1.0.18), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libavcodec58 (>= 7:4.2), libavfilter7 (>= 7:4.0), libavformat58 (>= 7:4.2), libavutil56 (>= 7:4.0), libc6 (>= 2.28), libconfuse2 (>= 3.2.1~), libcurl3-gnutls (>= 7.16.2), libevent-2.1-7 (>= 2.1.8-stable), libevent-pthreads-2.1-7 (>= 2.1.8-stable), libgcrypt20 (>= 1.8.0), libgnutls30 (>= 3.7.0), libgpg-error0 (>= 1.14), libjson-c5 (>= 0.15), libmxml1 (>= 3.2), libplist3 (>= 2.2.0), libprotobuf-c1 (>= 1.0.1), libpulse0 (>= 5.0), libsodium23 (>= 0.6.1), libsqlite3-0 (>= 3.7.5), libunistring2 (>= 0.9.7), libwebsockets16 (>= 1.6.0), zlib1g (>= 1:1.1.4), avahi-daemon (>= 0.6.31-3~), adduser, lsb-base (>= 3.0-6), psmisc
+Recommends: libavcodec-extra
+Filename: ./pool/main/f/forked-daapd/forked-daapd_26.4+dfsg1-2~bpo11+1_armel.deb
+Size: 273480
+MD5sum: 229dbfef193ca0eb1d55edb3bd38c48a
+SHA1: 75ba423fb2f1b336b64f1a2087f23b256f4ee651
+SHA256: ab327a3615e6b91f954e4d5b435479b1d48179e142ae9efbb9b1024454e9d495
+Section: sound
+Priority: optional
+Homepage: https://github.com/ejurgensen/forked-daapd
+Description: DAAP/DACP (iTunes) server, support for AirPlay and Roku devices
+ forked-daapd is an iTunes-compatible media server, originally intended
+ as a rewrite of Firefly Media Server (also known as mt-daapd).
+ .
+ It supports a wide range of audio formats, can stream video to iTunes,
+ XBMC and other compatible clients, has support for Apple's Remote
+ iPhone/iPod application and can stream music to AirPlay devices like
+ the AirPort Express.
+ .
+ It also features RSP support for Roku's SoundBridge devices and MPD support for
+ Music Player Daemon clients.
+ .
+ Built-in, on-the-fly decoding support enables serving popular free music
+ formats like FLAC, Ogg Vorbis or Musepack to those clients that do not
+ otherwise support them.
+
+Package: gdisk
+Version: 0.8.1-1~bpo60+1
+Architecture: amd64
+Maintainer: Guillaume Delacour <gui@iroqwa.org>
+Installed-Size: 672
+Depends: libc6 (>= 2.2.5), libgcc1 (>= 1:4.1.1), libicu44 (>= 4.4.1-1), libncurses5 (>= 5.7+20100313), libpopt0 (>= 1.16), libstdc++6 (>= 4.4.0), libuuid1 (>= 2.16), groff-base
+Filename: ./pool/main/g/gdisk/gdisk_0.8.1-1~bpo60+1_amd64.deb
+Size: 302456
+MD5sum: 724876a32bc16b0e463e213cb3c7e86f
+SHA1: 1c63161b27cc592a16ddefe6c4026a0c0f2d9a76
+SHA256: 5c7e377950aa4f08eb31800145fdc4fcdf7a1b6fa8d1277296e37a20a7f26a00
+Section: admin
+Priority: extra
+Homepage: http://sourceforge.net/projects/gptfdisk/
+Description: GPT fdisk text-mode partitioning tool
+ GPT fdisk (aka gdisk) is a text-mode partitioning
+ tool for that works on Globally Unique Identifier
+ (GUID) Partition Table (GPT) disks, rather than
+ on the more common (through 2009)
+ Master Boot Record (MBR) partition tables.
+ .
+ Please note that gdisk is still in beta version.
+
+Package: iscsitarget-module-2.6.31.14-hmnhdce
+Source: iscsitarget
+Version: 1.4.20.2-1
+Architecture: armel
+Maintainer: Philipp Hug <debian@hug.cx>
+Installed-Size: 172
+Provides: iscsitarget-module
+Filename: ./pool/main/i/iscsitarget/iscsitarget-module-2.6.31.14-hmnhdce_1.4.20.2-1_armel.deb
+Size: 52696
+MD5sum: 901146e4419257a3937b5bff4df60366
+SHA1: ccf7bbbf9bdae2b45cebb85236ddff526084df07
+SHA256: c4df12aa9bd598105e8299b9e92141d2a8d18bfa5d7b69abfc9e731a5f3b6870
+Section: net
+Priority: optional
+Description: iSCSI Enterprise Target module for Linux (kernel 2.6.31.14-hmnhdce)
+ iSCSI Enterprise Target is for building an iSCSI storage system on
+ Linux. It is aimed at developing an iSCSI target satisfying enterprise
+ requirements.
+ .
+ This package contains the compiled kernel module for 2.6.31.14-hmnhdce
+ .
+ If you have compiled your own kernel, you will most likely need to build
+ your own iscsitarget-modules. The iscsitarget-source package has been
+ provided for use with the Debian kernel-package utility to produce a
+ version of iscsitarget-module for your kernel.
+
+Package: iscsitarget-module-dkms
+Version: 0.3
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 25
+Depends: patch, iscsitarget-dkms, linux-headers-2.6.32-5-all | linux-headers-3.2.0-0.bpo.4-all
+Conflicts: iscsitarget-module
+Replaces: iscsitarget-module
+Provides: iscsitarget-module
+Filename: ./pool/main/i/iscsitarget-module-dkms/iscsitarget-module-dkms_0.3_all.deb
+Size: 1354
+MD5sum: 79c87ce878c2daad5e0cb51394f49042
+SHA1: a0f6e02e543ff6392f08e293860645c3b227855e
+SHA256: 35b7da5efb56f5037f13cfaac3507058cd4638178ba8dc46db22a20592ae016c
+Section: net
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: iSCSI Enterprise Target module for Linux
+ iSCSI Enterprise Target is for building an iSCSI storage system on
+ Linux. It is aimed at developing an iSCSI target satisfying enterprise
+ requirements.
+ .
+ This package installs the iscsitarget kernel module using dkms.
+
+Package: libatalk-dev
+Source: netatalk
+Version: 3.1.9-1
+Architecture: arm64
+Maintainer: Debian Netatalk Packaging <pkg-netatalk-devel@lists.alioth.debian.org>
+Installed-Size: 1150
+Depends: libatalk17 (= 3.1.9-1)
+Conflicts: netatalk (<< 3.0.3-1)
+Replaces: netatalk (<< 3.0.3-1)
+Filename: ./pool/main/n/netatalk/libatalk-dev_3.1.9-1_arm64.deb
+Size: 286056
+MD5sum: 3da24c03d39878684ffaff3e78b314ab
+SHA1: d89347dd309cba5b0d1fb1d3fc9cb592a83a2cb4
+SHA256: 052bf16edf1a222d480e356c879356a0974bdd4ff3b10979cfef80f282901c87
+Section: libdevel
+Priority: extra
+Homepage: http://netatalk.sourceforge.net/
+Description: AppleTalk library used by Netatalk (header files)
+ Netatalk is an implementation of the AppleTalk Protocol Suite for
+ BSD-derived systems. The current release contains support for
+ EtherTalk Phase I and II, DDP, RTMP, NBP, ZIP, AEP, ATP, PAP, ASP, and
+ AFP.
+ .
+ This package contains the Atalk library (libatalk) development headers.
+
+Package: libatalk17
+Source: netatalk
+Version: 3.1.9-1
+Architecture: i386
+Maintainer: Debian Netatalk Packaging <pkg-netatalk-devel@lists.alioth.debian.org>
+Installed-Size: 673
+Depends: libacl1 (>= 2.2.51-8), libattr1 (>= 1:2.4.46-8), libc6 (>= 2.15), libcrack2 (>= 2.8.12), libldap-2.4-2 (>= 2.4.7), libwrap0 (>= 7.6-4~)
+Conflicts: netatalk (<< 3.0.3-1)
+Replaces: netatalk (<< 3.0.3-1)
+Filename: ./pool/main/n/netatalk/libatalk17_3.1.9-1_i386.deb
+Size: 266318
+MD5sum: 608951164abdf58504a65e2f3b023052
+SHA1: 8e2acf9b94b10b4a75b20fa10176ecf37aa0706c
+SHA256: 8a21cb5076941748d0dee5607ca1fdf7433a16de5cc7d4a1ee7e7e8c3654742e
+Section: libs
+Priority: extra
+Homepage: http://netatalk.sourceforge.net/
+Description: AppleTalk library used by Netatalk
+ Netatalk is an implementation of the AppleTalk Protocol Suite for
+ BSD-derived systems. The current release contains support for
+ EtherTalk Phase I and II, DDP, RTMP, NBP, ZIP, AEP, ATP, PAP, ASP, and
+ AFP.
+ .
+ This package contains the Atalk library (libatalk) that is part of
+ Netatalk since version 3.0.
+
+Package: libcollectdclient1
+Source: collectd
+Version: 5.12.0-7.1
+Architecture: arm64
+Maintainer: Collectd Packaging Team <team+collectd@tracker.debian.org>
+Installed-Size: 201
+Depends: libc6 (>= 2.17), libgcrypt20 (>= 1.8.0)
+Suggests: collectd
+Filename: ./pool/main/c/collectd/libcollectdclient1_5.12.0-7.1_arm64.deb
+Size: 140368
+MD5sum: a0857c1937234886b48fcb6fd4d391ff
+SHA1: fc22d347802926278c282fb84c3a4d5c04456a42
+SHA256: 102cd50649a15e7ac19279978fcbdf385f41dd9e88422c2b590c9319a41ae578
+Section: libs
+Priority: optional
+Homepage: https://collectd.org/
+Description: client library for collectd's control interface
+ libcollectdclient provides an API to access the control interface provided by
+ the unixsock plugin of collectd, a statistics collection and monitoring
+ daemon. It can be used to access values collected by collectd or dispatch new
+ values and notifications to the daemon. This allows for integration with
+ other applications such as monitoring solutions.
+ .
+ This package contains the shared library.
+
+Package: libevent-2.0-5
+Source: libevent
+Version: 2.0.16-stable-1
+Architecture: amd64
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 345
+Depends: libc6 (>= 2.7)
+Filename: ./pool/main/libe/libevent/libevent-2.0-5_2.0.16-stable-1_amd64.deb
+Size: 167652
+MD5sum: 59c480cf16cd6ef0734a2860a44c0303
+SHA1: 2cf6b9d0c3242fa77d27a51a338e31fd90119694
+SHA256: d019d645ae713f67c472b9e04411d1fe2df4b0e97faaca8045f4b30efbdb864a
+Section: libs
+Priority: standard
+Homepage: http://www.monkey.org/~provos/libevent/
+Description: Asynchronous event notification library
+ Libevent is an asynchronous event notification library that provides a
+ mechanism to execute a callback function when a specific event occurs
+ on a file descriptor or after a timeout has been reached.
+ .
+ It is meant to replace the asynchronous event loop found in
+ event driven network servers. Currently, libevent supports /dev/poll,
+ kqueue(2), event ports, select(2), poll(2) and epoll(4).
+ .
+ For backward compatibility and to transition to "libevent_core only"
+ or "libevent_core + libevent_extra", the libevent source package builds
+ the libevent library that includes everything in libevent_core and
+ libevent_extra.
+
+Package: libjavascript-minifier-perl
+Version: 1.05-1~bpo60+1
+Architecture: all
+Maintainer: Dominic Hargreaves <dom@earth.li>
+Installed-Size: 76
+Depends: perl
+Filename: ./pool/main/libj/libjavascript-minifier-perl/libjavascript-minifier-perl_1.05-1~bpo60+1_all.deb
+Size: 10050
+MD5sum: a5fa3e52fc2c9c7d9886d5ea02668774
+SHA1: f396604be713348ad9f9c53244fe21ec137dbfb6
+SHA256: ccdf97601f033078d8718b9e1388e1b730ef75f2d103bb93fafad4954bd500d6
+Section: perl
+Priority: optional
+Homepage: http://search.cpan.org/dist/JavaScript-Minifier/
+Description: Perl extension for minifying JavaScript code
+ JavaScript::Minifier removes unnecessary whitespace from JavaScript code. The
+ primary requirement developing this module is to not break working code
+
+Package: libjs-extjs3
+Version: 3.4.1.1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 47680
+Filename: ./pool/main/libj/libjs-extjs3/libjs-extjs3_3.4.1.1_all.deb
+Size: 7657590
+MD5sum: 89af5c208c93245da6b09745b98a8b35
+SHA1: d6716cbad2f958f646214a4770abbbdd5782f379
+SHA256: 501071ae17dff5242d4af010dbe35902b1c19d6bcfbd9b31a09854ab1f06e39d
+Section: web
+Priority: extra
+Homepage: http://www.sencha.com
+Description: A JavaScript framework and RIA platform
+ Ext is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+
+Package: libjs-extjs4
+Version: 4.2.2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 52099
+Suggests: libjs-extjs4-docs
+Filename: ./pool/main/libj/libjs-extjs4/libjs-extjs4_4.2.2_all.deb
+Size: 10889636
+MD5sum: 1d06929b0af80403ea1f7e5313379799
+SHA1: 3c4112b8c769d865a228d22c8cc50951dfa1bd02
+SHA256: 8394394513695b8898f53b16e35e0eb9809029e8028aeda6b0552337400f776f
+Section: web
+Priority: extra
+Homepage: http://www.sencha.com
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+
+Package: libjs-extjs4-docs
+Source: libjs-extjs4
+Version: 4.2.2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 193102
+Filename: ./pool/main/libj/libjs-extjs4/libjs-extjs4-docs_4.2.2_all.deb
+Size: 30331486
+MD5sum: 2374d352a20338da7d33f8cdb93e6dd1
+SHA1: 7a094690ce408dc0d2d64d29e98118cb74310064
+SHA256: 351b97ca586d7f3be1d4723636bb3466e867a44b8f5f66951ffeea0e8217e18e
+Section: doc
+Priority: extra
+Homepage: http://www.sencha.com
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+ .
+ This package contains the documentation and example files.
+
+Package: libjs-extjs5
+Version: 5.1.1.451
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 66908
+Filename: ./pool/main/libj/libjs-extjs5/libjs-extjs5_5.1.1.451_all.deb
+Size: 3793806
+MD5sum: 900e3270b81e8871e47a1424e3fefdab
+SHA1: c585d550de9665243a22ed0091542cc67f218d83
+SHA256: e8ee95dcf4214424e1c7fd20ea34fc8abe0376f4f36a7247b703d4f45070c1e5
+Section: web
+Priority: extra
+Homepage: http://www.sencha.com
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+
+Package: libjs-extjs6
+Version: 6.2.0.981-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 138643
+Filename: ./pool/main/libj/libjs-extjs6/libjs-extjs6_6.2.0.981-2_all.deb
+Size: 16151868
+MD5sum: f2d740b5cab8dab5b0aad5d25a11671e
+SHA1: 27d292c1a7a7e1f3fe9c7c9fd640dabb01a49dba
+SHA256: 16a2695fc05369976803ed45ca57ddbe389e944bff29c6e92e3abdcc7934d45a
+Section: web
+Priority: extra
+Homepage: http://www.sencha.com
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+
+Package: libnutscan1
+Source: nut
+Version: 2.6.5-1
+Architecture: amd64
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 128
+Depends: libc6 (>= 2.4), libltdl7 (>= 2.2.6b)
+Filename: ./pool/partner/n/nut/libnutscan1_2.6.5-1_amd64.deb
+Size: 61896
+MD5sum: 1e37733fbe21d050dc17c1b2df2e9507
+SHA1: 2f62db8145542b9bd2b33bd02a89f36aab3dcf4c
+SHA256: e0d837d53580acdb905e8794afc3bb43feef48015007ea81ed8067818e95c04a
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - client library
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides the shared client library.
+
+Package: libnutscan1-dev
+Source: nut
+Version: 2.6.5-1
+Architecture: i386
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 240
+Depends: libnutscan1 (= 2.6.5-1)
+Conflicts: nut-dev (<< 2.2.2)
+Provides: nut-dev
+Filename: ./pool/partner/n/nut/libnutscan1-dev_2.6.5-1_i386.deb
+Size: 82082
+MD5sum: 6e94fcec96fd9214c77bc11ca812bf61
+SHA1: bf098673ea5da2097cf713690c6946982e50bcc7
+SHA256: 45478739b8dceedfa27e668d546321d0d2ba59cc9f98732f2e4f04df49bde1c7
+Section: libdevel
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - development files
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides the development files.
+
+Package: libupsclient1
+Source: nut
+Version: 2.6.5-1
+Architecture: i386
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 112
+Depends: libc6 (>= 2.3.6-6~)
+Filename: ./pool/partner/n/nut/libupsclient1_2.6.5-1_i386.deb
+Size: 57636
+MD5sum: 5191c1d05918f2c0469db06adaf75a6c
+SHA1: b78736bf73cb53200e63dd530212e9838dbbcfe3
+SHA256: cf51f3071b0f653bb72286ee2ade0d32665d4bcd0bb5d7c59d78748e06e169f4
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - client library
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides the shared client library.
+
+Package: libupsclient1-dev
+Source: nut
+Version: 2.6.5-1
+Architecture: amd64
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 224
+Depends: libupsclient1 (= 2.6.5-1)
+Conflicts: nut-dev (<< 2.2.2)
+Provides: nut-dev
+Filename: ./pool/partner/n/nut/libupsclient1-dev_2.6.5-1_amd64.deb
+Size: 78174
+MD5sum: b4826d5cac16e5fac25022345d955f1a
+SHA1: 9f03daad53d6012127e9be5956b9263db675bad3
+SHA256: dc09a9a71d01127e91d1963163f701fda90f4a392ae90e39d776bce409c4369d
+Section: libdevel
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - development files
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides the development files.
+
+Package: monit
+Version: 1:5.26.0-1
+Architecture: i386
+Maintainer: Sergey B Kirpichev <skirpichev@gmail.com>
+Installed-Size: 992
+Depends: libc6 (>= 2.28), libpam0g (>= 0.99.7.1), libssl1.1 (>= 1.1.0), zlib1g (>= 1:1.2.0), lsb-base (>= 3.2-13)
+Suggests: default-mta | postfix | mail-transport-agent, sysvinit-core
+Filename: ./pool/main/m/monit/monit_5.26.0-1_i386.deb
+Size: 342028
+MD5sum: 286b44b7cb7f22f29d44dd56d69a4f0d
+SHA1: 217d0234a28f2c67b86359d229da2fe4a2570d00
+SHA256: 275e03bdf167f5d7201eb2d95a982f4cfca03caea1ac8fb822b99f572570cf5f
+Section: admin
+Priority: optional
+Homepage: https://mmonit.com/monit/
+Description: utility for monitoring and managing daemons or similar programs
+ monit is a utility for monitoring and managing daemons or similar
+ programs running on a Unix system. It will start specified programs
+ if they are not running and restart programs not responding.
+ .
+ monit supports:
+  * Daemon mode - poll programs at a specified interval
+  * Monitoring modes - active, passive or manual
+  * Start, stop and restart of programs
+  * Group and manage groups of programs
+  * Process dependency definition
+  * Logging to syslog or own logfile
+  * Configuration - comprehensive controlfile
+  * Runtime and TCP/IP port checking (tcp and udp)
+  * SSL support for port checking
+  * Unix domain socket checking
+  * Process status and process timeout
+  * Process cpu usage
+  * Process memory usage
+  * Process zombie check
+  * Check the systems load average
+  * Check a file or directory timestamp
+  * Alert, stop or restart a process based on its characteristics
+  * MD5 checksum for programs started and stopped by monit
+  * Alert notification for program timeout, restart, checksum, stop
+    resource and timestamp error
+  * Flexible and customizable email alert messages
+  * Protocol verification. HTTP, FTP, SMTP, POP, IMAP, NNTP, SSH, DWP,
+    LDAPv2 and LDAPv3
+  * An http interface with optional SSL support to make monit
+    accessible from a webbrowser
+
+Package: netatalk
+Version: 3.1.9-1
+Architecture: amd64
+Maintainer: Debian Netatalk Packaging <pkg-netatalk-devel@lists.alioth.debian.org>
+Installed-Size: 929
+Depends: libacl1 (>= 2.2.51-8), libatalk17, libattr1 (>= 1:2.4.46-8), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.15), libcomerr2 (>= 1.01), libcrack2 (>= 2.8.12), libdb5.3, libevent-2.0-5 (>= 2.0.10-stable), libgcrypt20 (>= 1.6.0), libgssapi-krb5-2 (>= 1.8+dfsg), libk5crypto3 (>= 1.6.dfsg.2), libkrb5-3 (>= 1.6.dfsg.2), libldap-2.4-2 (>= 2.4.7), libpam0g (>= 0.99.7.1), libwrap0 (>= 7.6-4~), perl, init-system-helpers (>= 1.18~), netbase, libpam-modules, python
+Recommends: lsof, rc, db-util, procps, cracklib-runtime, libpam-cracklib, avahi-daemon
+Suggests: texlive-base-bin, groff, quota, db4.2-util
+Filename: ./pool/main/n/netatalk/netatalk_3.1.9-1_amd64.deb
+Size: 308326
+MD5sum: b1c54ef0d8826d7c86993d813c056114
+SHA1: b9242e06deac9b99921502b80716adb3f64ef5c9
+SHA256: 826c52cdb714655654a9bbf1ab81aefe983ec4b2b0a7b71759e59d9330c914ad
+Section: net
+Priority: extra
+Homepage: http://netatalk.sourceforge.net/
+Description: AppleTalk user binaries
+ Netatalk is an implementation of the AppleTalk Protocol Suite for
+ BSD-derived systems.  The current release contains support for
+ EtherTalk Phase I and II, DDP, RTMP, NBP, ZIP, AEP, ATP, PAP, ASP, and
+ AFP.
+ .
+ This package contains all daemon and utility programs as well as Netatalk's
+ static libraries.
+
+Package: nut
+Version: 2.6.5-1
+Architecture: amd64
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 5804
+Depends: libc6 (>= 2.4), libneon27-gnutls (>= 0.29.3), libnutscan1, libpowerman0, libsnmp15 (>= 5.4.3~dfsg), libupsclient1, libusb-0.1-4 (>= 2:0.1.12), libwrap0 (>= 7.6-4~), adduser, lsb-base (>= 3.0-6), udev (>= 0.124-1)
+Recommends: bash-completion
+Suggests: nut-cgi, nut-snmp, nut-dev, nut-xml
+Conflicts: nut-dev (<< 2.2.2), nut-doc, nut-hal-drivers, nut-usb (<< 2.1.0-3), ups-monitor
+Replaces: nut-doc
+Provides: nut-doc, nut-usb, ups-monitor
+Filename: ./pool/partner/n/nut/nut_2.6.5-1_amd64.deb
+Size: 2458012
+MD5sum: d67b300b3517d20b0e8f069481af1cb2
+SHA1: 2190646fa6adeaaa9ac04f843590d2e53e949556
+SHA256: 10ece8f88b74a9b7b6663192e6856ceec3d4b6dc3a42ce728daa4f7daa9292a3
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - core system
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides NUT's core system, and the serial and USB UPS
+ drivers. In most cases it is sufficient for a basic UPS monitoring
+ system.
+
+Package: nut-cgi
+Source: nut
+Version: 2.6.5-1
+Architecture: i386
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 288
+Depends: libc6 (>= 2.3.6-6~), libfontconfig1 (>= 2.8.0), libfreetype6 (>= 2.2.1), libgd2-xpm (>= 2.0.36~rc1~dfsg), libjpeg62 (>= 6b1), libpng12-0 (>= 1.2.13-4), libupsclient1, libx11-6, libxpm4, zlib1g (>= 1:1.1.4), adduser
+Recommends: apache | httpd
+Suggests: nut
+Replaces: nut (<< 1.1.11)
+Filename: ./pool/partner/n/nut/nut-cgi_2.6.5-1_i386.deb
+Size: 98882
+MD5sum: 5cc073e9895ec3350c4c5413777542ae
+SHA1: 5bc675f792b629b7db85f6fca2badf72c6f6dfe5
+SHA256: de8e71b09f3b91d5d3bb6d68d4dc267443877453064023a055bb6c950c7152e3
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - web interface
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides an HTTP interface for Network UPS Tools which makes
+ it possible to monitor the core NUT system with a web browser.
+
+Package: nut-hal-drivers
+Source: nut
+Version: 2.6.5-1
+Architecture: amd64
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 512
+Depends: libc6 (>= 2.4), libdbus-1-3 (>= 1.0.2), libdbus-glib-1-2 (>= 0.78), libglib2.0-0 (>= 2.14.0), libhal1 (>= 0.5.8.1), libusb-0.1-4 (>= 2:0.1.12), udev (>= 0.124-1)
+Conflicts: nut
+Breaks: udev (<< 124-1)
+Provides: hal-ups-support
+Filename: ./pool/partner/n/nut/nut-hal-drivers_2.6.5-1_amd64.deb
+Size: 176120
+MD5sum: 6e162a4cd9b732fe99e51ff828494e2f
+SHA1: a959cf6181a4ce0049e01ae54eb211f990ade5db
+SHA256: d1216dd5554f198d4f9fc9c7727c386acdd0f85ba8dcbf57c325d063e2ef76dc
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - HAL interface
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides add-ons for the hardware abstraction layer (HAL) that
+ allow desktop environments to monitor locally-connected UPS equipment. The
+ HAL drivers cannot be used at the same time as the normal NUT upsd.
+
+Package: nut-powerman-pdu
+Source: nut
+Version: 2.6.5-1
+Architecture: amd64
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 152
+Depends: libc6 (>= 2.4), libpowerman0, nut (>= 2.4.0), powerman (>= 2.3.3)
+Filename: ./pool/partner/n/nut/nut-powerman-pdu_2.6.5-1_amd64.deb
+Size: 72852
+MD5sum: 7f50bcf86782291bd6152c992da89e5e
+SHA1: beebbef2c01f7805f2b3edc245596d7404053702
+SHA256: d3860cd075dcc496ae8ffddb032d985669f7c54e44fbad1ae858527dd93fb867
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - PowerMan PDU driver
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides powerman-pdu, which allows NUT clients to communicate
+ with the PowerMan daemon to support PDUs.
+
+Package: nut-snmp
+Source: nut
+Version: 2.6.5-1
+Architecture: i386
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 216
+Depends: libc6 (>= 2.4), libsnmp15 (>= 5.4.3~dfsg), nut (>= 1.4.1-pre1)
+Conflicts: nut (<= 1.4.0)
+Filename: ./pool/partner/n/nut/nut-snmp_2.6.5-1_i386.deb
+Size: 86404
+MD5sum: 12325c6ea192bfc3da28b09c080f66c2
+SHA1: b449f15b495784eee2246d973a97f4fb2d0f2cce
+SHA256: 4af07037b0d596f4fe4268d932ca81e2a4bd3b2fc078ec3a3c171baf3e8829d8
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - SNMP driver
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides snmp-ups, the SNMP multi-MIB driver for UPS, which
+ supports various MIBs including IETF, MGE, and APC. It adds an SNMP
+ Manager interface to the core NUT system.
+
+Package: nut-xml
+Source: nut
+Version: 2.6.5-1
+Architecture: i386
+Maintainer: Arnaud Quette <aquette@debian.org>
+Installed-Size: 168
+Depends: libc6 (>= 2.4), libneon27-gnutls (>= 0.29.3), nut (>= 2.2.2)
+Filename: ./pool/partner/n/nut/nut-xml_2.6.5-1_i386.deb
+Size: 77434
+MD5sum: d58d2c5a0dc21b9202133eb4f4aa7913
+SHA1: d36e6aa186ffd21ddf3a1248e682dceef0522a1d
+SHA256: 5296772caa9dc207c8f191eef4c4972b497cdf21ecac114dd04cc6dfeda33d1f
+Section: admin
+Priority: optional
+Homepage: http://www.networkupstools.org
+Description: network UPS tools - XML/HTTP driver
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware. Clients access the hardware
+ through the server, and are notified whenever the power status
+ changes.
+ .
+ This package provides netxml-ups, which supports UPS models from
+ Eaton or MGE that use an XML/HTTP-based Network Management Card or
+ Proxy.
+
+Package: onedrive
+Version: 2.5.5-1+np1+1.1
+Architecture: arm64
+Maintainer: Norbert Preining <norbert@preining.info>
+Installed-Size: 3721
+Depends: libc6 (>= 2.34), libcurl4 (>= 7.16.2), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.12.0), libnotify4 (>= 0.7.3), libphobos2-ldc-shared100 (>= 1:1.30.0), libsqlite3-0 (>= 3.7.14), init-system-helpers (>= 1.52)
+Filename: ./pool/main/o/onedrive/onedrive_2.5.5-1+np1+1.1_arm64.deb
+Size: 774776
+MD5sum: eccb8cad85d6870327500117681d05dd
+SHA1: 2b65f30886e852debd576ccab9ec9ec046fa9361
+SHA256: f7f18aaa4189071c64aa6e86dec34895cb96515a7c66501b64f131bf4d98b696
+Section: net
+Priority: optional
+Homepage: https://github.com/abraunegg/onedrive
+Description: folder synchronization with OneDrive
+ OneDrive is the cloud storage system of Microsoft. This package provides
+ the command line client specialising in synchronizing with OneDrive cloud
+ storage.
+
+Package: openmediavault
+Version: 8.0.0
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 21048
+Depends: php-fpm, libpam-modules, php-json, dpkg, patch, dash, mawk | gawk, php-cgi, php-cli, php-mbstring, php-pam, sudo, ethtool, python3-dialog, acl, iproute2, xfsprogs, jfsutils, ntfs-3g, wsdd (>= 0.7.0), sdparm, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus, cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server, uuid, tzdata, nfs-kernel-server, lsb-release, sshpass, grep, zstd, wget, util-linux, samba, samba-common-bin, rsync, apt-utils, netplan.io, avahi-daemon, libnss-mdns, iptables, monit, beep, php-bcmath, sed, gdisk, rrdtool, collectd, cron, anacron, quota, php-xml, login, quotatool, whiptail, lvm2, ca-certificates, libc-bin, findutils, coreutils, xmlstarlet, mount, parted, bash, diffutils, lsof, rrdcached, locales, nginx, bash-completion, python3, f2fs-tools, python3-apt, wpasupplicant, systemd, systemd-sysv, btrfs-progs, samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, chrony, python3-netifaces, udev, python3-lxml, salt-minion (>= 3006.0), libnss-myhostname, php-yaml, python3-click, python3-cached-property, python3-polib, libnss-systemd, libnss-resolve, debian-archive-keyring, openmediavault-keyring, systemd-resolved, python3-packaging, unattended-upgrades, apt-listchanges, apticron, debconf (>= 0.5) | debconf-2.0
+Conflicts: gdm3, lightdm, lxdm, sddm, slim, wdm, xdm
+Filename: ./pool/main/o/openmediavault/openmediavault_8.0.0_all.deb
+Size: 6255852
+MD5sum: fc423fa4791b61c9914c28d88599a3bf
+SHA1: f85a01ddc6d8e214c7fef6af644653ab3f927684
+SHA256: 3185dfa0c6ba4a6cf9fa508a8b02cc5c8942e69d8e48b31e995f42116f8c9879
+Section: admin
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: openmediavault - The open network attached storage solution
+ openmediavault is a small and simple to use network attached storage system
+ with a smart WebGUI.
+
+Package: openmediavault-apt
+Version: 7.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 174
+Depends: openmediavault (>= 7.7)
+Filename: ./pool/main/o/openmediavault-apt/openmediavault-apt_7.0.2-1_all.deb
+Size: 25476
+MD5sum: 88fba8e68d2066d3f3961b679fb2901b
+SHA1: 03818823306f59bfd29f31542cb0ac0b4a5de0b7
+SHA256: 8f5993fb5f8d791d66ec165cc8e445ec0273d04a963d6e0ab1ac31446bf4f746
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault APT management plugin
+ Manage APT (Advanced Package Tool) repositories easily.
+Plugin-Section: utilities
+
+Package: openmediavault-bcache
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 282
+Depends: openmediavault (>= 7.4.14), bcache-tools
+Filename: ./pool/main/o/openmediavault-bcache/openmediavault-bcache_7.0-2_all.deb
+Size: 23616
+MD5sum: eecc873b4500e89b542d9b0b7f35fb01
+SHA1: 4da3659cea52f68c1fb6ca89258637de672c30ef
+SHA256: 9bfa9cd9f31902ef682523a00244e766691509b4e727b66612d9761f5c25fa67
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Bcache plugin
+ Makes it possible to use an SSD as a read/write cache for another block device.
+Plugin-Section: filesystems
+
+Package: openmediavault-clamav
+Version: 7.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 387
+Depends: openmediavault (>= 7.4.5), clamav-daemon (>= 0.102), clamav-freshclam, clamdscan
+Filename: ./pool/main/o/openmediavault-clamav/openmediavault-clamav_7.0.2-1_all.deb
+Size: 49708
+MD5sum: b0b95ac49c1e749ad2ff25d44586740f
+SHA1: b62187fa14b19bc4caeab2ecd0e0c1a5dcd5f907
+SHA256: 470eaed5dfaabddbc99ac2fae4813e27023f304d179cd924701157a30bac3549
+Section: utils
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault ClamAV plugin
+ Clam AntiVirus is an anti-virus toolkit for Unix.
+Plugin-Section: utilities
+
+Package: openmediavault-diskstats
+Version: 7.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 111
+Depends: openmediavault (>= 7.0)
+Filename: ./pool/main/o/openmediavault-diskstats/openmediavault-diskstats_7.0.2-1_all.deb
+Size: 11400
+MD5sum: 6c90649b7ad1459840e39547c41a3373
+SHA1: 5557cc486a069d6afd8e20d92737f3ba128cb0e9
+SHA256: da2f4d5327048dacbdd3bc410a018c618141ec87000632df2ba28458a664cf39
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault disk monitoring plugin
+ The disk monitoring plugin collects performance statistics of hard-disks.
+ !!! Note !!!
+ For the statistics to function correctly, stable kernel device name
+ assignment for the drives to be monitored must be ensured across reboots.
+ This can be accomplished with user-defined Udev rules that must be
+ created by the user.
+Plugin-Section: monitoring
+
+Package: openmediavault-filebrowser
+Version: 7.0-4
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 155
+Depends: openmediavault (>= 7.0), podman, catatonit
+Filename: ./pool/main/o/openmediavault-filebrowser/openmediavault-filebrowser_7.0-4_all.deb
+Size: 17424
+MD5sum: 237647865d64f3d1e79c4b9b5fcb1693
+SHA1: 8903ee88033d7ad8971ba6be231be42c7d0f2cc8
+SHA256: 772c44812a87cc5cc6a6ded3ed22e41f247c650015070ceccb1bfcf119980ecd
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault File Browser plugin
+ File Browser provides a file managing interface within a specified
+ directory and it can be used to upload, delete, preview, rename and
+ edit your files.
+Plugin-Architecture: amd64, armel, armhf, arm64
+Plugin-Section: utilities
+
+Package: openmediavault-forkeddaapd
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 153
+Depends: openmediavault (>= 7.0), forked-daapd
+Filename: ./pool/main/o/openmediavault-forkeddaapd/openmediavault-forkeddaapd_7.0-2_all.deb
+Size: 19720
+MD5sum: fa9af7cea84f4a0ed4b04cdab76bfa4b
+SHA1: d1f01004dfaedc0589c485c364e56f8515d093a1
+SHA256: 174ff26e3a3973f05e9cbd3dbf1db4c0955b17bd0618b9b0e5beef8b0d722a8d
+Section: sound
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault forked-daapd (DAAP server) plugin
+ forked-daapd is an iTunes-compatible DAAP (Digital Audio Access Protocol)
+ media server.
+Plugin-Section: multimedia
+
+Package: openmediavault-ftp
+Version: 7.0-5
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 507
+Depends: openmediavault (>= 7.1), proftpd-basic, proftpd-mod-vroot
+Filename: ./pool/main/o/openmediavault-ftp/openmediavault-ftp_7.0-5_all.deb
+Size: 67424
+MD5sum: 08d1b82214f0dc109191c4b8c31a685c
+SHA1: cb9f68d8c62c0c4642f597de8a2b3470ed3ebc8e
+SHA256: 5c1c8e79c700a16637fd18d818dca9e3c59d95aac73ea374e09cf91f801f27e3
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault FTP-Server plugin
+ ProFTPD is a powerful modular FTP/SFTP/FTPS server.
+Plugin-Section: sharing
+
+Package: openmediavault-hosts
+Version: 7.0-3
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 113
+Depends: openmediavault (>= 7.0)
+Filename: ./pool/main/o/openmediavault-hosts/openmediavault-hosts_7.0-3_all.deb
+Size: 8908
+MD5sum: bdfc17c08995c0fab92171684ff13247
+SHA1: c7fafe95a3d0d4dcdd068667ba2faae2cf8fc14d
+SHA256: 0fa3ee221e0deddf5f4a85b98cc2861bf3cb479a6f7fef235051d2cffb3a2742
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault hosts plugin
+ Manage custom entries in the /etc/hosts file.
+Plugin-Section: network
+
+Package: openmediavault-iscsitarget
+Version: 3.1.6
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 324
+Depends: openmediavault (>= 3.0.67), iscsitarget, iscsitarget-dkms, linux-headers-amd64 | linux-headers-armel | linux-headers-armhf | linux-headers-i386 | linux-headers-mips | linux-headers-mipsel | linux-headers-powerpc | linux-headers-ppc64el | linux-headers-s390 | linux-headers-s390x | linux-headers-sparc
+Filename: ./pool/main/o/openmediavault-iscsitarget/openmediavault-iscsitarget_3.1.6_all.deb
+Size: 47932
+MD5sum: c0ee039fc53e61492d6e229c377a8fab
+SHA1: addde5636f8154d352b5a280d95906a7347c54ba
+SHA256: 06ec787abde539f6a9e33ba74edaa3f78063a0231f378d489ef4df22858dd48a
+Section: net
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: OpenMediaVault iSCSI Enterprise Target plugin
+ iSCSI Enterprise Target is for building an iSCSI storage system on Linux.
+Plugin-Section: filesystems
+
+Package: openmediavault-k8s
+Version: 7.4.4-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 1239
+Depends: openmediavault (>= 7.7), bash, git, tar, xz-utils
+Filename: ./pool/main/o/openmediavault-k8s/openmediavault-k8s_7.4.4-1_all.deb
+Size: 138492
+MD5sum: f85377fb34c03dcb2c8c469960a8271e
+SHA1: 087bcdc2b303e284d359a1eadc9947d70b7216ed
+SHA256: baf84aceafee9b9d5f58830f0914f54dcbb6a3ccfcc798bc090bd1ea7fbe5a3b
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Kubernetes plugin
+ Kubernetes is an open-source platform for orchestrating and
+ managing containerized/dockerized applications in an automated,
+ scalable, and resource-efficient environment.
+ The plugin is intended to implement a single-node Kubernetes
+ environment using SUSE K3s.
+ The plugin comes with preinstalled Traefik, Cert-Manager and
+ Kubernetes Dashboard.
+ By default the LoadBalancer resource is listening on port 8080
+ (HTTP) and 8443 (HTTPS).
+Plugin-Section: administration
+
+Package: openmediavault-keyring
+Version: 1.0.2-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 25
+Depends: gpgv
+Recommends: gnupg
+Filename: ./pool/main/o/openmediavault-keyring/openmediavault-keyring_1.0.2-2_all.deb
+Size: 6036
+MD5sum: 0bb66e5536329b9d469fdbbc5d62006c
+SHA1: 6db547f43bccf6c3a36d9a65c3d0aa4c1e772680
+SHA256: 2660c7147ce6334c79ff38f316b8459cd89af2da876df0c80a308239fcd95f0c
+Section: misc
+Priority: important
+Homepage: http://www.openmediavault.org
+Description: GnuPG archive keys of the openmediavault archive
+ The openmediavault project digitally signs its Release files. This package
+ contains the archive keys used for that.
+
+Package: openmediavault-ldap
+Version: 4.0.6-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 189
+Depends: openmediavault (>= 4.0.12), libnss-ldap, libpam-ldap
+Conflicts: openmediavault-ad
+Filename: ./pool/main/o/openmediavault-ldap/openmediavault-ldap_4.0.6-1_all.deb
+Size: 22624
+MD5sum: c2c3703c10995615cf4df3fbd70ab2fc
+SHA1: f24f89990dbb8c92251a703ea0d583a92866b982
+SHA256: 7a0609b00c08cbbe8bf279be801d5ebfed4ab4a53b04de16bdff491d5fde3367
+Section: admin
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: OpenMediaVault Lightweight Directory Access Protocol (LDAP) plugin
+ LDAP is an application protocol for accessing and maintaining distributed
+ directory information services over an Internet Protocol network. This
+ plugin adds user authentication support via LDAP.
+Plugin-Section: network
+
+Package: openmediavault-lvm2
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 251
+Depends: openmediavault (>= 7.0), lvm2
+Filename: ./pool/main/o/openmediavault-lvm2/openmediavault-lvm2_7.0-2_all.deb
+Size: 25368
+MD5sum: 5076a59ba480b00784e429715cddd4ed
+SHA1: 98cad48d9e0fa8ab5c0ba671d93e7780c95fff45
+SHA256: ae387f762d62c12ffba9563ef6116ff4e953a97acbedd2dbaa8e7b96694a3604
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Logical Volume Manager (LVM2) plugin
+ LVM supports enterprise level volume management of disk and disk subsystems
+ by grouping arbitrary disks into volume groups. The total capacity of volume
+ groups can be allocated to logical volumes, which are accessed as regular
+ block devices.
+Plugin-Section: filesystems
+
+Package: openmediavault-md
+Version: 7.0.3-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 189
+Depends: openmediavault (>= 7.4.5), mdadm
+Filename: ./pool/main/o/openmediavault-md/openmediavault-md_7.0.3-1_all.deb
+Size: 18316
+MD5sum: abca4ab4e4c62a33cc88335e1583f691
+SHA1: 4ddcebb0c9d8e05a912c2ccd057e4acf16eddf3d
+SHA256: fd3280d46cb070de627a8f8d85db912519dc0fb11c71ba7002c3cbd035bd4abb
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Linux MD (Multiple Device) plugin
+ This plugin is used to create, manage, and monitor Linux MD (Multiple
+ Device) devices.
+Plugin-Section: filesystems
+
+Package: openmediavault-netatalk
+Version: 4.0.7-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 248
+Depends: openmediavault (>= 4.0.12), netatalk (>= 3.1.9)
+Filename: ./pool/main/o/openmediavault-netatalk/openmediavault-netatalk_4.0.7-1_all.deb
+Size: 35182
+MD5sum: d2bb6ead75cfefdc10aecca31c4c799a
+SHA1: 7e442a765e5d7fdb4d3eca1d46863d398cb4dc2e
+SHA256: f9ebeaa01984b26cbb7fb98a2c021f790f911620bf93a3a5fe050745970fa95f
+Section: net
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: OpenMediaVault netatalk (AppleTalk Protocol Suite) plugin
+ Netatalk is an implementation of the AppleTalk Protocol Suite.
+Plugin-Section: sharing
+
+Package: openmediavault-nut
+Version: 7.0.6-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 270
+Depends: openmediavault (>= 7.1), nut, udev
+Filename: ./pool/main/o/openmediavault-nut/openmediavault-nut_7.0.6-1_all.deb
+Size: 33536
+MD5sum: 89dbac7578b40dc34e1a916d5f16d62d
+SHA1: 2b54727e818d8536c3da25d6befe1c3040cf99cf
+SHA256: fd31cdcbaf710395c509846111a847436338103b57621ea9130778d9538ab314
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Network UPS Tools (NUT) plugin
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware.
+Plugin-Section: admin
+
+Package: openmediavault-onedrive
+Version: 7.1.4-3
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 234
+Depends: openmediavault (>= 7.0), onedrive (>= 2.5.2), sudo
+Filename: ./pool/main/o/openmediavault-onedrive/openmediavault-onedrive_7.1.4-3_all.deb
+Size: 24960
+MD5sum: 87c159989d485083c50d6b3de8106e01
+SHA1: 4a2d502262cf494b18890f55ff72baff7fa58966
+SHA256: 02b325ac6c449acca2fa1a03166aa14cb569c91abfdcff714ec7de88b158f90b
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault OneDrive plugin
+ OneDrive is the cloud storage system of Microsoft. This plugin
+ is synchronizing a shared folder with OneDrive cloud storage.
+Plugin-Architecture: amd64, arm64, armhf, i386
+Plugin-Section: utilities
+
+Package: openmediavault-owncloud
+Version: 2.0.3
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 328
+Depends: openmediavault (>= 2.0.15), owncloud (>= 6.0.4), locales
+Filename: ./pool/main/o/openmediavault-owncloud/openmediavault-owncloud_2.0.3_all.deb
+Size: 25666
+MD5sum: 6634094cc33bddd0245cb3de6185f8cd
+SHA1: 097e3140be959aa1ae0c51ee6c59234ef8f104bb
+SHA256: 1b18e7fcda7f5ac86225202b5827f98522b08cf96e4f1841dd1b277052dcd627
+Section: web
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: OpenMediaVault ownCloud plugin
+ ownCloud gives you universal access to your files through a web interface
+ or WebDAV. It also provides a platform to easily view & sync your contacts,
+ calendars and bookmarks across all your devices and enables basic editing
+ right on the web.
+Plugin-Section: sharing
+
+Package: openmediavault-owntone
+Version: 7.1.0-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 166
+Depends: openmediavault (>= 7.6), podman
+Conflicts: openmediavault-owntone (<< 7.1.0)
+Filename: ./pool/main/o/openmediavault-owntone/openmediavault-owntone_7.1.0-1_all.deb
+Size: 23168
+MD5sum: 243c57284fdfca919e786633aee8ec93
+SHA1: fcb790aeb917fa7856f67545f96873f9a0945ccc
+SHA256: 3e5998997a7f9c5a4445a75c55ce5bcb45ef124b5bbf606efc15ecd1a54ebcc0
+Section: sound
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault OwnTone plugin
+ OwnTone is a DAAP (iTunes), MPD (Music Player Daemon) and RSP (Roku)
+ media server.
+Plugin-Architecture: amd64, armhf, arm64
+Plugin-Section: multimedia
+
+Package: openmediavault-photoprism
+Version: 7.0-4
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 204
+Depends: openmediavault (>= 7.0), podman, catatonit
+Filename: ./pool/main/o/openmediavault-photoprism/openmediavault-photoprism_7.0-4_all.deb
+Size: 22968
+MD5sum: 6ec7832921a056735561ef94b2cc742e
+SHA1: 704f5241340aa2bf985b7a79017d186c82f1368d
+SHA256: 3e1d2fdf82f9fae19144b4162c6ba805a88bf76956864103a72f5b2e3c27a535
+Section: graphics
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault PhotoPrism plugin
+ PhotoPrism® is an AI-powered app for browsing, organizing & sharing your
+ photo collection.
+Plugin-Architecture: amd64, arm64
+Plugin-Section: multimedia
+
+Package: openmediavault-podman
+Version: 7.0-3
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 175
+Depends: openmediavault (>= 7.0), podman, catatonit
+Filename: ./pool/main/o/openmediavault-podman/openmediavault-podman_7.0-3_all.deb
+Size: 14376
+MD5sum: 24f561f864c83de598a393a9a1966e9b
+SHA1: 2bb07732016693d8695a40f4f1bc433261bfd09f
+SHA256: a0bcac6422a234cc3475432935f5f28c0c9c2291ded62a11cbb3cdf50fcbfa0c
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault Podman plugin
+ Podman (the POD MANager) is a tool for managing containers and images, volumes
+ mounted into those containers, and pods made from groups of containers.
+Plugin-Section: administration
+
+Package: openmediavault-route
+Version: 4.0.4-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 133
+Depends: openmediavault (>= 4.0.12), iproute2
+Filename: ./pool/main/o/openmediavault-route/openmediavault-route_4.0.4-1_all.deb
+Size: 14038
+MD5sum: 24023eb9ff4e7f8716ef7bb7a9d1199d
+SHA1: 5bdb2c7217598ffc7f43613e5a393d362bc3edbd
+SHA256: fd62a1c3689e46436f741fa25cf456f17b07ae02a11e20ff52e012d4067d86b9
+Section: net
+Priority: optional
+Homepage: http://www.openmediavault.org
+Description: OpenMediaVault IP routing table plugin
+ Adds the ability to manipulate the IP routing table via WebGUI.
+Plugin-Section: network
+
+Package: openmediavault-s3
+Version: 7.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 152
+Depends: openmediavault (>= 7.0), podman, catatonit
+Filename: ./pool/main/o/openmediavault-s3/openmediavault-s3_7.0.2-1_all.deb
+Size: 17132
+MD5sum: 8bf9d165abe0854940ebc811f81b03fe
+SHA1: 8bbe65622523127efad1843e79b62991a07a15c8
+SHA256: 2c944af0074383d3a95235cf74d44e2edd0a6c891470a96f5d4ed0f5d19d46d5
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault S3 plugin
+ A standalone high performance object storage based on MinIO.
+ It is API compatible with Amazon S3 cloud storage service.
+Plugin-Architecture: amd64, arm64
+Plugin-Section: network
+
+Package: openmediavault-shairport
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 145
+Depends: openmediavault (>= 7.0), shairport-sync (>= 2.8.6), alsa-utils
+Filename: ./pool/main/o/openmediavault-shairport/openmediavault-shairport_7.0-2_all.deb
+Size: 15580
+MD5sum: 6c8aad0fa7c06b7281785107c01efd6f
+SHA1: 59502f08305c33aee612d04c6a6e64f6589cf6a5
+SHA256: 7c8fe2bf6eadc64b0c9c5ccb8aa8469efef98ee9a55d26b3123f328906eeebd2
+Section: sound
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault shairport (AirPlay/RAOP receiver) plugin
+ Shairport emulates an AirPort Express for the purpose of streaming
+ music from iTunes and compatible iPods and iPhones. It implements a
+ server for the Apple RAOP protocol. ShairPort does not support AirPlay
+ v2 (video and photo streaming).
+Plugin-Section: multimedia
+
+Package: openmediavault-sharerootfs
+Version: 7.0-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 16
+Depends: openmediavault (>= 7.0)
+Filename: ./pool/main/o/openmediavault-sharerootfs/openmediavault-sharerootfs_7.0-1_all.deb
+Size: 3316
+MD5sum: 0aa2bfa473e8247eecdb851e9249c867
+SHA1: 458848094c156798ced05720d480b7d303ae2cbb
+SHA256: fb61b241de45e40645322cd0448db2f9a2f493de42d1e912282773c1cca5caa7
+Section: admin
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault share root filesystem plugin
+ By default the root filesystem is hidden in openmediavault
+ and cannot be used to create shared folders on it. This is
+ by design to separate the operating system from user data.
+ This plugin allows creating shared folders in the root file
+ system.
+Plugin-Section: admin
+
+Package: openmediavault-snmp
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 163
+Depends: openmediavault (>= 7.0), snmpd
+Filename: ./pool/main/o/openmediavault-snmp/openmediavault-snmp_7.0-2_all.deb
+Size: 17804
+MD5sum: 171513ea17f81da8135b27af313a8b7b
+SHA1: 561437537901a68af26492d92a238de86c811647
+SHA256: 6cebde31be61d29fb9ffde6670707283dabdca100a911b85937dd16038046b37
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault SNMP (Simple Network Management Protocol) plugin
+ The Simple Network Management Protocol (SNMP) provides a framework
+ for the exchange of management information between agents (servers)
+ and clients.
+Plugin-Section: network
+
+Package: openmediavault-tftp
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 153
+Depends: openmediavault (>= 7.0), tftpd-hpa
+Filename: ./pool/main/o/openmediavault-tftp/openmediavault-tftp_7.0-2_all.deb
+Size: 18192
+MD5sum: 4bdfb35ff6596821f3b2c8a1af58a696
+SHA1: 847d66b0387c75bcf943c5dedcd551bf8ae871ed
+SHA256: 910814a13be831affaeade12c7a21120387b093a9489493fe4c75d2a39b7add4
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault TFTP-Server plugin
+ A TFTP server is mainly required for booting operating systems or
+ configurations over the network.
+Plugin-Section: sharing
+
+Package: openmediavault-transmissionbt
+Version: 0.2.8.8
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+ Marcel Beck <marcel.beck@mbeck.org>
+Installed-Size: 340
+Depends: openmediavault (>= 0.2.6.3), transmission-daemon (>= 2.42)
+Filename: ./pool/main/o/openmediavault-transmissionbt/openmediavault-transmissionbt_0.2.8.8_all.deb
+Size: 35338
+MD5sum: 97d22df32060bf991bea359e9778321e
+SHA1: 6908d2e6405fd938d27399eb5ab20198802df4c2
+SHA256: 956a9f76097f48f633214d2335195a4a8eb710f631aacbef855d7a311bce66ef
+Section: net
+Priority: optional
+Homepage: http://www.openmediavault.org
+ http://packages.omv-plugins.org/
+ https://github.com/OMV-Plugins/openmediavault-transmissionbt
+Description: OpenMediaVault Transmission (BitTorrent client) plugin
+ Transmission is a simple BitTorrent client that features a very simple and
+ intuitive interface.
+
+Package: openmediavault-usbbackup
+Version: 7.1.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 278
+Depends: smartmontools, rsync, openmediavault (>= 7.7)
+Filename: ./pool/main/o/openmediavault-usbbackup/openmediavault-usbbackup_7.1.2-1_all.deb
+Size: 38952
+MD5sum: bd66ba63b374d080f707a39cd268fd82
+SHA1: b36146eae23015130d08f069bea8cac358148c02
+SHA256: 08b19e32b187426581a137f296b8ec3d989d3de8153f931f6ebc4a92aa9e9367
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault USB/eSATA/SAS/SD backup plugin
+ Automatically synchronise a shared folder to an USB/eSATA/SAS/SD device
+ and vice verse when it is plugged in.
+ The device is put into sleep mode after synchronisation to signal that it
+ can be removed safely.
+Plugin-Section: backup
+
+Package: openmediavault-wetty
+Version: 7.0-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 136
+Depends: openmediavault (>= 7.0), podman
+Filename: ./pool/main/o/openmediavault-wetty/openmediavault-wetty_7.0-2_all.deb
+Size: 12928
+MD5sum: 6b4e83cd05d85a05fab369ba5b60ce17
+SHA1: 4b371c2c62db8d2baf8de7a23f4ea188c4b84983
+SHA256: 37a37dfc4f35b2cdbeccfbb36a2944dc46b199fc387d0b0d54b6db94fdd57e4f
+Section: net
+Priority: optional
+Homepage: https://www.openmediavault.org
+Description: openmediavault WeTTY (Web + TTY) plugin
+ Terminal access in browser over HTTP/HTTPS.
+Plugin-Architecture: amd64
+Plugin-Section: network
+
+Package: owncloud
+Version: 6.0.4-0
+Architecture: all
+Maintainer: Thomas Mueller <thomas.mueller@tmit.eu>
+Installed-Size: 95460
+Depends: apache2 | httpd, php5, php5-mysqlnd | php5-mysql, php5-sqlite, php5-pgsql, php5-common, php5-gd, php-xml-parser, php5-intl, php5-mcrypt, php5-curl, php5-json, ntp | time-daemon
+Recommends: curl, exim4 | mail-transport-agent, php5-imagick, php5-apc
+Suggests: clamav | clamav-daemon, smbclient, libav-tools | ffmpeg, libreoffice
+Filename: ./pool/main/o/owncloud/owncloud_6.0.4-0_all.deb
+Size: 35405952
+MD5sum: e2d06f00e46d0972159605ec020fb88a
+SHA1: b43000c44692b0a5f3bf670279a25c01d22b265b
+SHA256: d609240017d8b3f2c88e8b3e230855db5aff9b97eb3fdf19ee6acf8cdd6170fc
+Section: devel
+Priority: optional
+Description: ownCloud Server - Private file sync and share server
+ ownCloud Server provides you a private file sync and share
+ cloud. Host this server to easily sync business or private documents
+ across all your devices, and share those documents with other users of
+ your ownCloud server on their devices.
+ .
+ ownCloud - Your Cloud, Your Data, Your Way!  www.owncloud.org
+
+Package: php-json-schema
+Version: 0.2.0
+Architecture: all
+Maintainer: Volker Theile <votdev@gmx.de>
+Installed-Size: 60
+Depends: php5-cgi | php5-cli
+Filename: ./pool/main/p/php-json-schema/php-json-schema_0.2.0_all.deb
+Size: 4942
+MD5sum: 46b2994fccb49f9963cbb167305ee3d6
+SHA1: 6de8ff79c5784b15f9a52bd5dfc5b0b34493e994
+SHA256: 8088dce581867277361c25a17da3581cb5b7b1429679d65d8648df7829b11ffa
+Section: php
+Priority: optional
+Homepage: http://code.google.com/p/json-schema-php
+Description: PHP implementation of JSON schema
+ Validates a JSON string against a schema. The validation works as defined by
+ the schema proposal (see http://www.json-schema.org).
+
+Package: php-pam
+Version: 2.2.4-1+deb12u1
+Architecture: armhf
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 34
+Depends: phpapi-20220829
+Filename: ./pool/main/p/php-pam/php-pam_2.2.4-1+deb12u1_armhf.deb
+Size: 7792
+MD5sum: 2918740ac0095f8b1064738ce4dca179
+SHA1: 2e54c2f18d3c09ded2b3f90e03b0bd1331ce2464
+SHA256: dbd15fe964b69b9757ca16d78a096d847e462443dab54661f64a85e172ed3f68
+Section: web
+Priority: optional
+Description: pam module for PHP 8.2
+ PAM integration
+ .
+ This extension provides PAM (Pluggable Authentication Modules)
+ integration. PAM is a system of libraries that handle the
+ authentication tasks of applications and services. The library
+ provides a stable API for applications to defer to for authentication
+ tasks.
+
+Package: php5-pam
+Version: 1.0.3-4
+Architecture: armhf
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 58
+Depends: libc6 (>= 2.4), libpam0g (>= 0.99.7.1), phpapi-20131226
+Filename: ./pool/main/p/php5-pam/php5-pam_1.0.3-4_armhf.deb
+Size: 7732
+MD5sum: 9e78be5fc210e2ca5f67022bc1e9c0f7
+SHA1: 1dbe1fa37364756bfb599889a416e5063b96151f
+SHA256: e41aff303d15d4eb565cba2fd0e6e2a8ef4b5eaa18178f7b7008b24bde91a574
+Section: web
+Priority: optional
+Description: pam module for PHP 5
+ PAM integration
+ .
+ This extension provides PAM (Pluggable Authentication Modules)
+ integration. PAM is a system of libraries that handle the
+ authentication tasks of applications and services. The library
+ provides a stable API for applications to defer to for authentication
+ tasks.
+
+Package: php5-proctitle
+Version: 0.1.2-4
+Architecture: amd64
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 60
+Depends: libc6 (>= 2.2.5), phpapi-20131226
+Filename: ./pool/main/p/php5-proctitle/php5-proctitle_0.1.2-4_amd64.deb
+Size: 6032
+MD5sum: e2f8b875f929759942f75a58e20e853b
+SHA1: c4fb8e74b0898c286f2f9c3a24735e7af6734c68
+SHA256: ad1f3b3dab9744d499322ab3c31aea0208eb7c7bdd69ac7123855f2a02b5b7c9
+Section: web
+Priority: optional
+Description: proctitle module for PHP 5
+ Allows setting the current process name on Linux and BSD
+ .
+ This extension allows changing the current process' name on Linux
+ and *BSD systems. This is useful when using pcntl_fork() to identify
+ running processes in process list
+
+Package: php5-slim3
+Version: 3.6.0-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 273
+Filename: ./pool/main/p/php5-slim3/php5-slim3_3.6.0-1_all.deb
+Size: 40324
+MD5sum: f447250064b2873c52aa47e3f3f938cb
+SHA1: f6e9b010cb6b543e4aa6d890c59975dbd0a7a135
+SHA256: 0a6d918e60e6ed420c7b1f6e7764f5c17dde8c223c5a9021f43754fdb9180b72
+Section: web
+Priority: extra
+Homepage: https://www.slimframework.com/
+Description: PHP micro framework to write REST APIs.
+ Slim is a PHP micro framework that helps you quickly write simple yet
+ powerful web applications and APIs.
+
+Package: proftpd-mod-vroot
+Version: 0.9.3-1
+Architecture: amd64
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 88
+Depends: proftpd-basic (>= 1.3.5), libc6 (>= 2.14), proftpd-abi-1.3.5
+Breaks: proftpd-basic (<< 1.3.4)
+Filename: ./pool/main/p/proftpd-mod-vroot/proftpd-mod-vroot_0.9.3-1_amd64.deb
+Size: 15900
+MD5sum: 12c0ed5e289d3855e5687dcfdfddceb2
+SHA1: 8f626b48c7f653541fc36616622267be2c9e8a7f
+SHA256: b361d2afd72d21e5343006607c20695017feca8bab1192ec348b24c5ea6d7413
+Section: net
+Priority: optional
+Homepage: http://www.castaglia.org/proftpd/modules/mod_vroot.html
+Description: ProFTPD module mod_vroot
+ The purpose of this module to is to implement a virtual chroot
+ capability that does not require root privileges.
+ The mod_vroot module provides this capability by using ProFTPD's
+ FS API. It also allows one to map a directory out of the user chroot
+ as an alias in the chroot for sharing common directories.
+
+Package: python3-looseversion
+Source: python-looseversion
+Version: 1.0.2-2
+Architecture: all
+Maintainer: Pablo Suarez Hernandez <psuarezhernandez@suse.de>
+Installed-Size: 30
+Depends: python3:any
+Filename: ./pool/main/p/python-looseversion/python3-looseversion_1.0.2-2_all.deb
+Size: 6900
+MD5sum: 5d80ecf44559d9c4d4093009a233aa8e
+SHA1: 0b12b095e8b81604e24ff1e42d163ed287618965
+SHA256: 4441491eb85e92c9784000328a4cd56a4397dad33c08b77f08a58b56b487e990
+Section: python
+Priority: optional
+Homepage: https://github.com/effigies/looseversion
+Description: A backwards/forwards-compatible fork of distutils.version.LooseVersion (Python 3)
+ A backwards/forwards-compatible fork of distutils.version.LooseVersion, for times when PEP-440 isn't what you need.
+ The goal of this package is to be a drop-in replacement for the original LooseVersion. It implements an identical interface and comparison logic to LooseVersion. The only major change is that a looseversion.LooseVersion is comparable to a distutils.version.LooseVersion, which means tools should not need to worry whether all dependencies that use LooseVersion have migrated.
+ This package installs the library for Python 3.
+
+Package: salt-common
+Source: salt
+Version: 3006.0+ds-1+232.1
+Architecture: all
+Maintainer: Debian Salt Team <pkg-salt-team@lists.alioth.debian.org>
+Installed-Size: 31820
+Depends: python3-apt, python3-dateutil, python3-looseversion, python3-jinja2, python3-msgpack (>= 0.4), python3-pkg-resources, python3-requests, python3-yaml, python3-systemd, python3-psutil, python3-pycryptodome, python3-gnupg, python3-zmq (>= 17.0.0), python3-distro, python3-jmespath, python3-markupsafe, python3-packaging, python3:any
+Recommends: lsb-release, python3-contextvars, python3-croniter
+Suggests: ifupdown, python3-pycurl, python3-twisted
+Breaks: python3-mako (<< 0.7.0)
+Filename: ./pool/main/s/salt/salt-common_3006.0+ds-1+232.1_all.deb
+Size: 7515332
+MD5sum: 1c3cc860447e0bb4fadee0d22746a1dc
+SHA1: 8868c84ea581fd9d7b1f8955b5038a7f1af6c5ca
+SHA256: 51c66531291f582acfc45207ade9b1573e63b17c1d5dae7439c19f9d1a13938e
+Section: admin
+Priority: optional
+Homepage: https://saltproject.io/
+Description: shared libraries that salt requires for all packages
+ salt is a powerful remote execution manager that can be used to
+ administer servers in a fast and efficient way.
+ .
+ It allows commands to be executed across large groups of
+ servers. This means systems can be easily managed, but data can
+ also be easily gathered.  Quick introspection into running
+ systems becomes a reality.
+ .
+ Remote execution is usually used to set up a certain state on a
+ remote system. Salt addresses this problem as well, the salt
+ state system uses salt state files to define the state a server
+ needs to be in.
+ .
+ Between the remote execution system, and state management Salt
+ addresses the backbone of cloud and data center management.
+ .
+ This particular package provides shared libraries that
+ salt-master, salt-minion, and salt-syndic require to function.
+
+Package: salt-minion
+Source: salt
+Version: 3006.0+ds-1+232.1
+Architecture: all
+Maintainer: Debian Salt Team <pkg-salt-team@lists.alioth.debian.org>
+Installed-Size: 226
+Depends: bsdmainutils, dctrl-tools, salt-common (= 3006.0+ds-1+232.1), python3:any
+Recommends: debconf-utils, dmidecode, net-tools
+Suggests: python3-augeas
+Filename: ./pool/main/s/salt/salt-minion_3006.0+ds-1+232.1_all.deb
+Size: 126196
+MD5sum: b69c7c728bffeccd4d4c0821e2f41cd7
+SHA1: 001a89c3bc62666d3ba87227598111582f5e797a
+SHA256: 7fd866a03d0b54dc7fcff9a97bb8a5dfb42737881655d50d0510ba47808139b1
+Section: admin
+Priority: optional
+Homepage: https://saltproject.io/
+Description: client package for salt, the distributed remote execution system
+ salt is a powerful remote execution manager that can be used to
+ administer servers in a fast and efficient way.
+ .
+ It allows commands to be executed across large groups of
+ servers. This means systems can be easily managed, but data can
+ also be easily gathered.  Quick introspection into running
+ systems becomes a reality.
+ .
+ Remote execution is usually used to set up a certain state on a
+ remote system. Salt addresses this problem as well, the salt
+ state system uses salt state files to define the state a server
+ needs to be in.
+ .
+ Between the remote execution system, and state management Salt
+ addresses the backbone of cloud and data center management.
+ .
+ This particular package provides the worker / agent for salt.
+
+Package: shairport
+Version: 1.1.1-1
+Architecture: armel
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 119
+Depends: libasound2 (>= 1.0.16), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.4), libssl1.0.0 (>= 1.0.0), avahi-daemon
+Filename: ./pool/main/s/shairport/shairport_1.1.1-1_armel.deb
+Size: 41654
+MD5sum: e630858ac81c1d956325dd0fa16b15ff
+SHA1: 3cffcba4935e98dfe53130d4cbc62fbf4cd77162
+SHA256: bf6dff716fdbc1b9147c5789b4ac27d8c0bfee8e76d19a49ae5873f34727c9a9
+Section: sound
+Priority: optional
+Homepage: https://github.com/abrasive/shairport
+Description: An AirPlay-compatible audio receiver
+ This program emulates an AirPort Express for the purpose of streaming
+ music from iTunes and compatible iPods and iPhones. It implements a
+ server for the Apple RAOP protocol. ShairPort does not support AirPlay
+ v2 (video and photo streaming).
+
+Package: shairport-sync
+Version: 2.8.4-1
+Architecture: amd64
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 184
+Depends: libasound2 (>= 1.0.17), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.14), libconfig9, libdaemon0 (>= 0.14), libpopt0 (>= 1.14), libssl1.0.0 (>= 1.0.0), avahi-daemon
+Filename: ./pool/main/s/shairport-sync/shairport-sync_2.8.4-1_amd64.deb
+Size: 58980
+MD5sum: dba5a50371f641db3ac7ac7206ba2284
+SHA1: 175c9f7c50c988d1fa1709ae75281e4434ce61cd
+SHA256: d67989a5b5f5f6e4440c8aa50071ce5fa727efbf7284046d3d75c6b449c7308d
+Section: sound
+Priority: optional
+Homepage: https://github.com/mikebrady/shairport-sync
+Description: An AirPlay-compatible audio receiver
+ This program emulates an AirPort Express for the purpose of streaming
+ audio from iTunes, iPods, iPhones, iPads and AppleTVs. Audio played by
+ a Shairport Sync-powered device stays synchronised with the source and
+ hence with similar devices playing the same source. Thus, for example,
+ synchronised multi-room audio is possible without difficulty.
+ This program does not support AirPlay video or photo streaming.
+
+Package: transmission-cli
+Source: transmission
+Version: 2.42-0ubuntu0.11.04.2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 2424
+Depends: libc6 (>= 2.10), libcurl3-gnutls (>= 7.16.2-1), libevent-2.0-5 (>= 2.0.10-stable), libssl0.9.8 (>= 0.9.8m-1), zlib1g (>= 1:1.1.4), transmission-common (= 2.42-0ubuntu0.11.04.2)
+Suggests: transmission-daemon (= 2.42-0ubuntu0.11.04.2), transmission-gtk (= 2.42-0ubuntu0.11.04.2)
+Breaks: transmission-daemon (<< 1.50-1)
+Replaces: transmission-daemon (<< 1.50-1)
+Filename: ./pool/main/t/transmission/transmission-cli_2.42-0ubuntu0.11.04.2_amd64.deb
+Size: 1186686
+MD5sum: ee4a42deb799532101026b1e3b9b3efe
+SHA1: 99195b94550ae080d0dd444fe9475e9c367bddf5
+SHA256: 4de164ea0e6ff664a5368a11d0e7a8c7bbd9c210ac4ba6f0b10d33347dd85906
+Section: net
+Priority: optional
+Homepage: http://www.transmissionbt.com/
+Description: lightweight BitTorrent client (command line programs)
+ Transmission is a set of lightweight BitTorrent clients (in GUI, CLI
+ and daemon form). All its incarnations feature a very simple, intuitive
+ interface on top on an efficient, cross-platform back-end.
+ .
+ This package contains a (deprecated) stand-alone command-line client,
+ transmission-remote to interface with transmission-daemon and tools to
+ create, edit and inspect torrent files.
+Original-Maintainer: Leo Costela <costela@debian.org>
+
+Package: transmission-common
+Source: transmission
+Version: 2.42-0ubuntu0.11.04.2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 696
+Breaks: transmission-gtk (<< 2.10-1)
+Replaces: transmission-gtk (<< 2.10-1)
+Filename: ./pool/main/t/transmission/transmission-common_2.42-0ubuntu0.11.04.2_all.deb
+Size: 223536
+MD5sum: 849a3fe49e031c2d6686003585eeef71
+SHA1: d1d2d401a41ad60fdf3bca8e9a22b3d76580df6e
+SHA256: 96298475bd75ba094f56e91a55b78fa4616699071e73707cfbd44100fa368617
+Section: net
+Priority: optional
+Homepage: http://www.transmissionbt.com/
+Description: lightweight BitTorrent client (common files)
+ Transmission is a set of lightweight BitTorrent clients (in GUI, CLI
+ and daemon form). All its incarnations feature a very simple, intuitive
+ interface on top on an efficient, cross-platform back-end.
+ .
+ This package contains the common files for the different transmission
+ versions.
+Original-Maintainer: Leo Costela <costela@debian.org>
+
+Package: transmission-daemon
+Source: transmission
+Version: 2.42-0ubuntu0.11.04.2
+Architecture: i386
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 532
+Pre-Depends: adduser
+Depends: libc6 (>= 2.11), libcurl3-gnutls (>= 7.16.2-1), libevent-2.0-5 (>= 2.0.10-stable), libssl0.9.8 (>= 0.9.8m-1), zlib1g (>= 1:1.1.4), transmission-common (= 2.42-0ubuntu0.11.04.2), lsb-base (>= 3.0)
+Recommends: transmission-cli (>= 1.50-1)
+Breaks: transmission-cli (<< 1.40-1)
+Replaces: transmission-cli (<< 1.40-1)
+Filename: ./pool/main/t/transmission/transmission-daemon_2.42-0ubuntu0.11.04.2_i386.deb
+Size: 217644
+MD5sum: 15530b262ed76a0f8e039e73f08383d6
+SHA1: 9c51a189990a9aea46286a7289f8666422e5c911
+SHA256: 9500aa55ff04afcf6db84b1fa0175c22c4a22d228980bbb33541766c58e842b7
+Section: net
+Priority: optional
+Homepage: http://www.transmissionbt.com/
+Description: lightweight BitTorrent client (daemon)
+ Transmission is a set of lightweight BitTorrent clients (in GUI, CLI
+ and daemon form). All its incarnations feature a very simple, intuitive
+ interface on top on an efficient, cross-platform back-end.
+ .
+ This package contains the transmission-daemon. For the associated
+ transmission-remote, see the package transmission-cli
+Original-Maintainer: Leo Costela <costela@debian.org>
+
+Package: wsdd
+Version: 0.7+gitc87819b
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 91
+Depends: python3, samba-common-bin
+Filename: ./pool/main/w/wsdd/wsdd_0.7+gitc87819b_all.deb
+Size: 19156
+MD5sum: f4d865e8126e6595b517827964b0517f
+SHA1: 9e89bbf154de705b50609402e5ae9474349e4671
+SHA256: f59fdecaf4e70c848bc10a4290ee7219ae75ba04e8d47c3f16cc0f7e35b1c51e
+Section: net
+Priority: optional
+Description: Web Services on Devices (WSD) daemon
+ Web Services on Devices (WSD) is a Microsoft API to simplify programming
+ connections to web service enabled devices, such as Printers, Scanners
+ and File Shares.
+ .
+ This daemon advertises and responds to probe requests from Windows
+ clients looking for File Shares.
+
+Package: xmlstarlet
+Version: 1.3.1-3~bpo60+1
+Architecture: amd64
+Maintainer: Mònica Ramírez Arceda <monica@debian.org>
+Installed-Size: 1228
+Depends: libc6 (>= 2.3), libxml2 (>= 2.7.4), libxslt1.1 (>= 1.1.25)
+Filename: ./pool/main/x/xmlstarlet/xmlstarlet_1.3.1-3~bpo60+1_amd64.deb
+Size: 185190
+MD5sum: 6280f148e3f07e1aa3135219a0bb5d49
+SHA1: d7e8677afd5f248b01be836e1b6d0d716de9aa28
+SHA256: 14ef701c0508e12894767142360d2037cf739d4c3c7b138d2dfcfd4d8e967fd9
+Section: text
+Priority: optional
+Homepage: http://xmlstar.sourceforge.net/
+Description: command line XML toolkit
+ XMLStarlet is a set of command line utilities (tools) which can be used to
+ transform, query, validate, and edit XML documents and files using simple set
+ of shell commands in similar way it is done for plain text files using
+ UNIX grep, sed, awk, diff, patch, join, etc commands.
+ .
+ This set of command line utilities can be used by those who deal with many XML
+ documents on UNIX shell command prompt as well as for automated XML processing
+ with shell scripts.
+ .
+ The toolkit's feature set includes options to:
+  Check or validate XML files (simple well-formedness check, DTD, XSD, RelaxNG)
+  Calculate values of XPath expressions on XML files (such as running sums, etc)
+  Search XML files for matches to given XPath expressions
+  Apply XSLT stylesheets to XML documents (including EXSLT support, and passing
+ parameters to stylesheets)
+  Query XML documents (ex. query for value of some elements of attributes,
+ sorting, etc)
+  Modify or edit XML documents (ex. delete some elements)
+  Format or "beautify" XML documents (as changing indentation, etc)
+  Fetch XML documents using http:// or ftp:// URLs
+  Browse tree structure of XML documents (in similar way to 'ls' command for
+ directories)
+  Include one XML document into another using XInclude
+  XML c14n canonicalization
+  Escape/unescape special XML characters in input text
+  Print directory as XML document
+  Convert XML into PYX format (based on ESIS - ISO 8879), and vice versa
+
