@@ -1,0 +1,412 @@
+Package: libjs-extjs6
+Version: 6.2.0.981-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 138643
+Homepage: http://www.sencha.com
+Priority: extra
+Section: web
+Filename: pool/main/libj/libjs-extjs6/libjs-extjs6_6.2.0.981-2_all.deb
+Size: 16151868
+SHA256: 16a2695fc05369976803ed45ca57ddbe389e944bff29c6e92e3abdcc7934d45a
+SHA1: 27d292c1a7a7e1f3fe9c7c9fd640dabb01a49dba
+MD5sum: f2d740b5cab8dab5b0aad5d25a11671e
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+
+Package: monit
+Version: 1:5.26.0-1
+Architecture: armhf
+Maintainer: Sergey B Kirpichev <skirpichev@gmail.com>
+Installed-Size: 772
+Depends: libc6 (>= 2.28), libpam0g (>= 0.99.7.1), libssl1.1 (>= 1.1.0), zlib1g (>= 1:1.2.0), lsb-base (>= 3.2-13)
+Suggests: default-mta | postfix | mail-transport-agent, sysvinit-core
+Homepage: https://mmonit.com/monit/
+Priority: optional
+Section: admin
+Filename: pool/main/m/monit/monit_5.26.0-1_armhf.deb
+Size: 313408
+SHA256: 6b67e499c1ba06bae2187b287e389590b9e815fdce4c2854773255b2f58ef9f1
+SHA1: 42f50ae2252cc959c809e077f0f36e0279862f79
+MD5sum: 35ba74240c3e01be62a6eab5059ad876
+Description: utility for monitoring and managing daemons or similar programs
+ monit is a utility for monitoring and managing daemons or similar
+ programs running on a Unix system. It will start specified programs
+ if they are not running and restart programs not responding.
+ .
+ monit supports:
+  * Daemon mode - poll programs at a specified interval
+  * Monitoring modes - active, passive or manual
+  * Start, stop and restart of programs
+  * Group and manage groups of programs
+  * Process dependency definition
+  * Logging to syslog or own logfile
+  * Configuration - comprehensive controlfile
+  * Runtime and TCP/IP port checking (tcp and udp)
+  * SSL support for port checking
+  * Unix domain socket checking
+  * Process status and process timeout
+  * Process cpu usage
+  * Process memory usage
+  * Process zombie check
+  * Check the systems load average
+  * Check a file or directory timestamp
+  * Alert, stop or restart a process based on its characteristics
+  * MD5 checksum for programs started and stopped by monit
+  * Alert notification for program timeout, restart, checksum, stop
+    resource and timestamp error
+  * Flexible and customizable email alert messages
+  * Protocol verification. HTTP, FTP, SMTP, POP, IMAP, NNTP, SSH, DWP,
+    LDAPv2 and LDAPv3
+  * An http interface with optional SSL support to make monit
+    accessible from a webbrowser
+
+Package: openmediavault
+Version: 5.6.26-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 9423
+Depends: perl:any, libjs-extjs6, php-fpm, libpam-modules, php-json, php-cgi, php-cli, php-mbstring, php-pam, sudo, ethtool, python3-dialog, acl, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm, wsdd (>= 0.6.2), sdparm, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus, cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server, uuid, tzdata, nfs-kernel-server, proftpd-basic, lsb-release, sshpass, wget, util-linux, samba, samba-common-bin, rsync, apt-utils, netplan.io, avahi-daemon, libnss-mdns, iptables, monit, beep, php-bcmath, sed, gdisk, rrdtool, collectd, cron, anacron, cron-apt, quota, php-xml, quotatool, whiptail, lvm2, watchdog, ca-certificates, perl, libjson-perl, liblocale-po-perl, proftpd-mod-vroot, libjavascript-minifier-xs-perl, coreutils, xmlstarlet, mount, parted, bash, diffutils, lsof, isc-dhcp-client, socat, rrdcached, locales, nginx, bash-completion, python3, f2fs-tools, python3-apt, wpasupplicant, systemd, systemd-sysv, btrfs-progs, dpkg, samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, chrony, python3-netifaces, udev, python3-lxml, salt-minion (>= 3003), libnss-myhostname, php-yaml, python3-click, python3-cached-property, debconf (>= 0.5) | debconf-2.0
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: admin
+Filename: pool/main/o/openmediavault/openmediavault_5.6.26-1_all.deb
+Size: 1727432
+SHA256: f17e720a7ab4075e347f2462087194b9ab674897c93a84d5b91cedecac069949
+SHA1: 9f51e801c105283ae32eefaa970e218190e204eb
+MD5sum: 9126dff52bb89310f7e26cdcc2f5f2a6
+Description: openmediavault - The open network attached storage solution
+ openmediavault is a small and simple to use network attached storage system
+ with a smart WebGUI.
+
+Package: openmediavault-clamav
+Version: 5.0.13-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 348
+Depends: openmediavault (>= 5.3.7), clamav-daemon (>= 0.102), clamav-freshclam, clamdscan
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: utils
+Filename: pool/main/o/openmediavault-clamav/openmediavault-clamav_5.0.13-1_all.deb
+Size: 49036
+SHA256: 3328cd6daf5ec13ab4848d974833b7e7bd45c7b3b1271144269e733c0dba3c49
+SHA1: 31697171f77c397dcc934ce3befe346828291b50
+MD5sum: 66b569bbea735b23a936ef28bff2d155
+Description: openmediavault ClamAV plugin
+ Clam AntiVirus is an anti-virus toolkit for Unix.
+Plugin-Section: utilities
+
+Package: openmediavault-diskstats
+Version: 5.1.1-2
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 111
+Depends: openmediavault (>= 5.6)
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: net
+Filename: pool/main/o/openmediavault-diskstats/openmediavault-diskstats_5.1.1-2_all.deb
+Size: 10416
+SHA256: 8b987c51e32d7a74f85848de58135fd48beb352c59c5e597afdbce39c851ee57
+SHA1: 25be208415203545edd75fc298e1125d6fc4c394
+MD5sum: fceee576aba8ee79ed4764ea0acd7978
+Description: openmediavault disk monitoring plugin
+ The disk monitoring plugin collects performance statistics of hard-disks.
+Plugin-Section: monitoring
+
+Package: openmediavault-forkeddaapd
+Version: 5.0.5-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 155
+Depends: openmediavault (>= 5.5.12), forked-daapd
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: sound
+Filename: pool/main/o/openmediavault-forkeddaapd/openmediavault-forkeddaapd_5.0.5-1_all.deb
+Size: 21116
+SHA256: 9800c9257527c8ec3e29b9d114bc5431dddab70b18d90b88759193b115c593e5
+SHA1: e44c1d9c3ddb31e6482f481b260e5cf7cb3b50a9
+MD5sum: 2299c20492baab122f2f74ddaa11253e
+Description: openmediavault forked-daapd (DAAP server) plugin
+ forked-daapd is an iTunes-compatible DAAP (Digital Audio Access Protocol)
+ media server.
+Plugin-Section: multimedia
+
+Package: openmediavault-keyring
+Version: 1.0
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 26
+Depends: gpgv
+Recommends: gnupg
+Homepage: http://www.openmediavault.org
+Priority: important
+Section: misc
+Filename: pool/main/o/openmediavault-keyring/openmediavault-keyring_1.0_all.deb
+Size: 9644
+SHA256: 6d59c359588a3f93474111c914ab03d25e4081153c9881d4a341619e66272720
+SHA1: 7b49a4e5f710b131ceb2520c55843c62ca531dc2
+MD5sum: d03dcd9950d0dc80defda65dcebfb2be
+Description: GnuPG archive keys of the OpenMediaVault archive
+ The OpenMediaVault project digitally signs its Release files. This package
+ contains the archive keys used for that.
+
+Package: openmediavault-lvm2
+Version: 5.0.3-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 243
+Depends: openmediavault (>= 5.3.4), lvm2
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: admin
+Filename: pool/main/o/openmediavault-lvm2/openmediavault-lvm2_5.0.3-1_all.deb
+Size: 28608
+SHA256: b0e2126b16b18ff24143701c8826370194b0d99383eebbc91cec9865bd7c456e
+SHA1: 7e84a8fd552df563b7851d9274677f0d56130e91
+MD5sum: 9e95262f82c82ae8ac997e21613eea73
+Description: openmediavault Logical Volume Manager (LVM2) plugin
+ LVM supports enterprise level volume management of disk and disk subsystems
+ by grouping arbitrary disks into volume groups. The total capacity of volume
+ groups can be allocated to logical volumes, which are accessed as regular
+ block devices.
+Plugin-Section: filesystems
+
+Package: openmediavault-nut
+Version: 5.2.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 275
+Depends: openmediavault (>= 5.6.0), nut, udev
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: admin
+Filename: pool/main/o/openmediavault-nut/openmediavault-nut_5.2.2-1_all.deb
+Size: 35164
+SHA256: 249ab17e6283bfbc612b90d763c35d462a7a6706e101003d1a033514b2cd9026
+SHA1: 7d6e092545f815f4093170051576b4abe88886c7
+MD5sum: 6aab32584b123d51914d0ad8a9801405
+Description: openmediavault Network UPS Tools (NUT) plugin
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware.
+Plugin-Section: utilities
+
+Package: openmediavault-shairport
+Version: 5.0.4-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 144
+Depends: openmediavault (>= 5.5.12), shairport-sync (>= 2.8.6), alsa-utils
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: sound
+Filename: pool/main/o/openmediavault-shairport/openmediavault-shairport_5.0.4-1_all.deb
+Size: 16304
+SHA256: c17eeeb1946ce9801377e499f4a7a60c6e19572ea7690ca6697fdbeb325ffaf9
+SHA1: 65303572260f17e88455f8c8c53d6acb4406bc62
+MD5sum: 115ed793aacf37c3a336aecc52cc8fed
+Description: openmediavault shairport (AirPlay/RAOP receiver) plugin
+ Shairport emulates an AirPort Express for the purpose of streaming
+ music from iTunes and compatible iPods and iPhones. It implements a
+ server for the Apple RAOP protocol. ShairPort does not support AirPlay
+ v2 (video and photo streaming).
+Plugin-Section: multimedia
+
+Package: openmediavault-sharerootfs
+Version: 5.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 15
+Depends: openmediavault (>= 5.2.5)
+Homepage: https://www.openmediavault.org
+Priority: optional
+Section: admin
+Filename: pool/main/o/openmediavault-sharerootfs/openmediavault-sharerootfs_5.0.2-1_all.deb
+Size: 2928
+SHA256: 9578d17899e6b271d428e6f7171e8ac7b1937f09f846b9724873ac639de35f22
+SHA1: 2559393a57ff15028fba8cf2aea9035b94ae10fa
+MD5sum: d82148762621eaabc5966b52334a0173
+Description: openmediavault share root filesystem plugin
+ The plugin enables the ability to create shared folders in the
+ root filesystem.
+Plugin-Section: admin
+
+Package: openmediavault-snmp
+Version: 5.0.3-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 161
+Depends: openmediavault (>= 5.3.4), snmpd
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: net
+Filename: pool/main/o/openmediavault-snmp/openmediavault-snmp_5.0.3-1_all.deb
+Size: 17152
+SHA256: 5be128ad5164d4c78845329d38b0eec74b0bf1d414f9f4479181f439248de3cf
+SHA1: c61ac8380ded3e7a89d25a6533ef1dad04f748c8
+MD5sum: 9e5172dd133497e7f844cabf89453800
+Description: openmediavault SNMP (Simple Network Management Protocol) plugin
+ The Simple Network Management Protocol (SNMP) provides a framework
+ for the exchange of management information between agents (servers)
+ and clients.
+Plugin-Section: network
+
+Package: openmediavault-tftp
+Version: 5.0.2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 162
+Depends: openmediavault (>= 5.3.4), tftpd-hpa
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: net
+Filename: pool/main/o/openmediavault-tftp/openmediavault-tftp_5.0.2-1_all.deb
+Size: 18144
+SHA256: 15d8bfbba9c17db321654a4c31b905260eca258da51d53e99cf86a4ec61923f0
+SHA1: a6135bff594b036fcd7ede6e16e978639cccb789
+MD5sum: 807c4741bcf61a356f1bc10c01274b4f
+Description: openmediavault TFTP-Server plugin
+ A TFTP server is mainly required for booting operating systems or
+ configurations over the network.
+Plugin-Section: sharing
+
+Package: openmediavault-usbbackup
+Version: 5.0.9-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 297
+Depends: rsync, openmediavault (>= 5.3.4)
+Homepage: http://www.openmediavault.org
+Priority: optional
+Section: net
+Filename: pool/main/o/openmediavault-usbbackup/openmediavault-usbbackup_5.0.9-1_all.deb
+Size: 44556
+SHA256: 15834b11d27e6e70683276ac0f071d3ceb751baa29e3f5bad287e7433da16122
+SHA1: fec7ea9f16a4ea03cdbfcf94ec3974b9e95ae36e
+MD5sum: 5bfc2691455bdd645d01d7c0b7abc2b5
+Description: openmediavault USB/eSATA backup plugin
+ Automatically synchronise a shared folder to an USB/eSATA device and vice
+ verse when it is plugged in.
+Plugin-Section: backup
+
+Package: php-pam
+Version: 1.0.3-1+deb10u1
+Architecture: armhf
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 34
+Depends: phpapi-20180731
+Priority: optional
+Section: web
+Filename: pool/main/p/php-pam/php-pam_1.0.3-1+deb10u1_armhf.deb
+Size: 7412
+SHA256: b32022b98da1d8bbe5488abbfd6e256c9104acc056ef6b616bdb80fb8a98533a
+SHA1: 49bedfa9356521bbcfb1afc0436efae20103ddc8
+MD5sum: b103ac277bc1221b5c2ec18ca9252216
+Description: pam module for PHP 7
+ PAM integration
+ .
+ This extension provides PAM (Pluggable Authentication Modules)
+ integration. PAM is a system of libraries that handle the
+ authentication tasks of applications and services. The library
+ provides a stable API for applications to defer to for authentication
+ tasks.
+
+Package: salt-common
+Source: salt
+Version: 3003+ds-1
+Architecture: all
+Maintainer: Debian Salt Team <pkg-salt-team@lists.alioth.debian.org>
+Installed-Size: 30506
+Depends: python3-apt, python3-dateutil, python3-jinja2, python3-msgpack (>= 0.4), python3-pkg-resources, python3-requests, python3-yaml, python3-systemd, python3-psutil, python3-distro, python3-pycryptodome, python3-zmq (>= 17.0.0), python3-markupsafe, python3:any
+Recommends: lsb-release, python3-croniter
+Suggests: python3-pycurl, python3-twisted
+Breaks: python3-mako (<< 0.7.0)
+Homepage: http://saltstack.org/
+Priority: optional
+Section: admin
+Filename: pool/main/s/salt/salt-common_3003+ds-1_all.deb
+Size: 7127784
+SHA256: 7b071309847adc65d47cbacaf199805201096c3c7a26e32933ae8db72eee719d
+SHA1: 23683d164b03385729f1b0bebf8e1aabb72f9619
+MD5sum: a18d5dceab316e7a7c39eb420a7e9be9
+Description: shared libraries that salt requires for all packages
+ salt is a powerful remote execution manager that can be used to
+ administer servers in a fast and efficient way.
+ .
+ It allows commands to be executed across large groups of
+ servers. This means systems can be easily managed, but data can
+ also be easily gathered.  Quick introspection into running
+ systems becomes a reality.
+ .
+ Remote execution is usually used to set up a certain state on a
+ remote system. Salt addresses this problem as well, the salt
+ state system uses salt state files to define the state a server
+ needs to be in.
+ .
+ Between the remote execution system, and state management Salt
+ addresses the backbone of cloud and data center management.
+ .
+ This particular package provides shared libraries that
+ salt-master, salt-minion, and salt-syndic require to function.
+
+Package: salt-minion
+Source: salt
+Version: 3003+ds-1
+Architecture: all
+Maintainer: Debian Salt Team <pkg-salt-team@lists.alioth.debian.org>
+Installed-Size: 127
+Depends: bsdmainutils, dctrl-tools, salt-common (= 3003+ds-1), python3:any
+Recommends: debconf-utils, dmidecode
+Suggests: python3-augeas
+Homepage: http://saltstack.org/
+Priority: optional
+Section: admin
+Filename: pool/main/s/salt/salt-minion_3003+ds-1_all.deb
+Size: 28436
+SHA256: c33bb7a8c4cb2bca1beb906c16a1e0135d0f69b9197f20c48b74fbea3daaaf65
+SHA1: 5a2a5ded6660d57360fd95a3bd8f0b44ce69270d
+MD5sum: a0e5e6c2ac441052f6e1e1cd37dda82f
+Description: client package for salt, the distributed remote execution system
+ salt is a powerful remote execution manager that can be used to
+ administer servers in a fast and efficient way.
+ .
+ It allows commands to be executed across large groups of
+ servers. This means systems can be easily managed, but data can
+ also be easily gathered.  Quick introspection into running
+ systems becomes a reality.
+ .
+ Remote execution is usually used to set up a certain state on a
+ remote system. Salt addresses this problem as well, the salt
+ state system uses salt state files to define the state a server
+ needs to be in.
+ .
+ Between the remote execution system, and state management Salt
+ addresses the backbone of cloud and data center management.
+ .
+ This particular package provides the worker / agent for salt.
+
+Package: wsdd
+Version: 0.6.4+git6d5922e2-1
+Architecture: all
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Installed-Size: 83
+Depends: samba-common-bin
+Priority: optional
+Section: net
+Filename: pool/main/w/wsdd/wsdd_0.6.4+git6d5922e2-1_all.deb
+Size: 17580
+SHA256: 28eddd78e9814b64068b755dbd23913ff8bbd93264c569d41ebc86d6551e4385
+SHA1: 174f7cdde88bb51fc87aa97b4fb75f7713c10fa3
+MD5sum: 0d30251109eea6c84561f390ecad4cec
+Description: Web Services on Devices (WSD) daemon
+ Web Services on Devices (WSD) is a Microsoft API to simplify programming
+ connections to web service enabled devices, such as Printers, Scanners
+ and File Shares.
+ .
+ This daemon advertises and responds to probe requests from Windows
+ clients looking for File Shares.
+
